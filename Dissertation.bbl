@@ -1,0 +1,264 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{MSOI{\etalchar{+}}02}
+
+\bibitem[AHJ14]{AHJ.14}
+D.~Armstrong, C.~R.~H. Hanusa, and B.~C. Jones, \emph{Results and conjectures
+  on simultaneous core partitions}, European J. Combin. \textbf{41} (2014),
+  205--220.
+
+\bibitem[ALW16]{ALW.16}
+D.~Armstrong, N.~A. Loehr, and G.~S. Warrington, \emph{Rational parking
+  functions and {C}atalan numbers}, Ann. Comb. \textbf{20} (2016), no.~1,
+  21--58.
+
+\bibitem[Amd]{Amdeberhan.15}
+T.~Amdeberhan, \emph{Theorems, problems and conjectures}, \mbox{1207.4045}.
+
+\bibitem[And86]{Andrews.86}
+G.~E. Andrews, \emph{{$q$}-series: their development and application in
+  analysis, number theory, combinatorics, physics, and computer algebra}, CBMS
+  Regional Conference Series in Mathematics, vol.~66, American Mathematical
+  Society, Providence, RI, 1986.
+
+\bibitem[And02]{Anderson.02}
+J.~Anderson, \emph{Partitions which are simultaneously {$t_1$}- and
+  {$t_2$}-core}, Discrete Math. \textbf{248} (2002), no.~1-3, 237--243.
+
+\bibitem[ANR{\etalchar{+}}17]{Ahmed2017count}
+N.~K. Ahmed, J.~Neville, R.~A. Rossi, N.~G. Duffield, and T.~L. Willke,
+  \emph{Graphlet decomposition: framework, algorithms, and applications},
+  Knowledge and Information Systems \textbf{50} (2017), no.~3, 689--722.
+
+\bibitem[BA99]{barabasi1999emergence}
+A.-L. Barab{\'a}si and R.~Albert, \emph{Emergence of scaling in random
+  networks}, science \textbf{286} (1999), no.~5439, 509--512.
+
+\bibitem[BCK{\etalchar{+}}17]{Bressan2017colourcoding}
+M.~Bressan, F.~Chierichetti, R.~Kumar, S.~Leucci, and A.~Panconesi,
+  \emph{Counting graphlets: Space vs time}, Proceedings of the Tenth ACM
+  International Conference on Web Search and Data Mining (New York, NY, USA),
+  WSDM '17, ACM, 2017, pp.~557--566.
+
+\bibitem[BCL{\etalchar{+}}11]{bickel2011method}
+P.~J. Bickel, A.~Chen, E.~Levina, et~al., \emph{The method of moments and
+  degree distributions for network models}, The Annals of Statistics
+  \textbf{39} (2011), no.~5, 2280--2301.
+
+\bibitem[BH95]{Billey.Haiman.1995}
+S.~Billey and M.~Haiman, \emph{Schubert polynomials for the classical groups},
+  J. Amer. Math. Soc. \textbf{8} (1995), no.~2, 443--482.
+
+\bibitem[BHRY14]{Billey.2014}
+S.~Billey, Z.~Hamaker, A.~Roberts, and B.~Young, \emph{Coxeter-{K}nuth graphs
+  and a signed {L}ittle map for type {B} reduced words}, Electron. J. Combin.
+  \textbf{21} (2014), no.~4, Paper 4.6, 39.
+
+\bibitem[BNY]{BNY.17}
+J.~Baek, H.~Nam, and M.~Yu, \emph{A bijective proof of amdeberhan's conjecture
+  on the number of $(s,s+2)$-core partitions with distinct parts},
+  \mbox{1705.02691}.
+
+\bibitem[BRAH12]{bhuiyan2012guise}
+M.~A. Bhuiyan, M.~Rahman, and M.~Al~Hasan, \emph{Guise: Uniform sampling of
+  graphlets for large graph analysis}, Data Mining (ICDM), 2012 IEEE 12th
+  International Conference on, IEEE, 2012, pp.~91--100.
+
+\bibitem[BS17]{Bump.Schilling.2017}
+D.~Bump and A.~Schilling, \emph{Crystal {B}ases: {R}epresentations and
+  {C}ombinatorics}, World Scientific, 2017.
+
+\bibitem[CF06]{chakrabarti2006graph}
+D.~Chakrabarti and C.~Faloutsos, \emph{Graph mining: Laws, generators, and
+  algorithms}, ACM computing surveys (CSUR) \textbf{38} (2006), no.~1, 2.
+
+\bibitem[CFSV04]{cordella2004sub}
+L.~P. Cordella, P.~Foggia, C.~Sansone, and M.~Vento, \emph{A (sub) graph
+  isomorphism algorithm for matching large graphs}, IEEE transactions on
+  pattern analysis and machine intelligence \textbf{26} (2004), no.~10,
+  1367--1372.
+
+\bibitem[Cho13]{Cho.2013}
+S.~Cho, \emph{A new {L}ittlewood-{R}ichardson rule for {S}chur
+  {$P$}-functions}, Trans. Amer. Math. Soc. \textbf{365} (2013), no.~2,
+  939--972.
+
+\bibitem[CLWL16]{chen2016general}
+X.~Chen, Y.~Li, P.~Wang, and J.~Lui, \emph{A general framework for estimating
+  graphlet statistics via random walk}, Proceedings of the VLDB Endowment
+  \textbf{10} (2016), no.~3, 253--264.
+
+\bibitem[Dav70]{davis1970clustering}
+J.~A. Davis, \emph{Clustering and hierarchy in interpersonal relations: Testing
+  two graph theoretical models on 742 sociomatrices}, American Sociological
+  Review (1970), 843--851.
+
+\bibitem[EG87]{Edelmann.Greene.1987}
+P.~Edelman and C.~Greene, \emph{Balanced tableaux}, Adv. in Math. \textbf{63}
+  (1987), no.~1, 42--99.
+
+\bibitem[FK96]{Fomin.Kirillov.1996}
+S.~Fomin and A.~N. Kirillov, \emph{Combinatorial {$B_n$}-analogues of
+  {S}chubert polynomials}, Trans. Amer. Math. Soc. \textbf{348} (1996), no.~9,
+  3591--3620.
+
+\bibitem[FS86]{frank1986markov}
+O.~Frank and D.~Strauss, \emph{Markov graphs}, Journal of the american
+  Statistical association \textbf{81} (1986), no.~395, 832--842.
+
+\bibitem[Gal15]{galashin.2015}
+P.~Galashin, \emph{A {L}ittlewood--{R}ichardson rule for dual stable
+  {G}rothendieck polynomials},  (2015), arXiv:1501.00051 [math.CO].
+
+\bibitem[GM16]{GM.16}
+E.~Gorsky and M.~Mazin, \emph{Rational parking functions and {LLT}
+  polynomials}, J. Combin. Theory Ser. A \textbf{140} (2016), 123--140.
+
+\bibitem[GMV]{GMV.17}
+E.~Gorsky, M.~Mazin, and M.~Vazirani, \emph{Rational dyck paths in the non
+  relatively prime case}, \mbox{1703.02668}.
+
+\bibitem[GMV16]{GMV.16}
+\bysame, \emph{Affine permutations and rational slope parking functions},
+  Trans. Amer. Math. Soc. \textbf{368} (2016), no.~12, 8403--8445.
+
+\bibitem[Hai89]{Haiman.1989}
+M.~Haiman, \emph{On mixed insertion, symmetry, and shifted {Y}oung tableaux},
+  J. Combin. Theory Ser. A \textbf{50} (1989), no.~2, 196--225.
+
+\bibitem[HS16]{Han2016waddling}
+G.~Han and H.~Sethu, \emph{Waddling random walk: Fast and accurate mining of
+  motif statistics in large graphs}, 2016 IEEE 16th International Conference on
+  Data Mining (ICDM) (2016), 181--190.
+
+\bibitem[Joh]{Johnson.15}
+P.~Johnson, \emph{Lattice points and simultaneous core partitions},
+  \mbox{1502.07934}.
+
+\bibitem[Kas94]{kashiwara.1994}
+M.~Kashiwara, \emph{Crystal bases of modified quantized enveloping algebra},
+  Duke Math. J. \textbf{73} (1994), no.~2, 383--413.
+
+\bibitem[KN94]{Kashiwara.Nakashima.1994}
+M.~Kashiwara and T.~Nakashima, \emph{Crystal graphs for representations of the
+  {$q$}-analogue of classical {L}ie algebras}, J. Algebra \textbf{165} (1994),
+  no.~2, 295--345.
+
+\bibitem[Kra89]{Kraskiewicz.1989}
+W.~Kra{\'s}kiewicz, \emph{Reduced decompositions in hyperoctahedral groups}, C.
+  R. Acad. Sci. Paris S\'er. I Math. \textbf{309} (1989), no.~16, 903--907.
+
+\bibitem[Kra95]{Kraskiewicz.1995}
+\bysame, \emph{Reduced decompositions in {W}eyl groups}, European J. Combin.
+  \textbf{16} (1995), no.~3, 293--313.
+
+\bibitem[Lam95]{Lam.1995}
+T.~K. Lam, \emph{B and {D} analogues of stable {S}chubert polynomials and
+  related insertion algorithms}, ProQuest LLC, Ann Arbor, MI, 1995, Thesis
+  (Ph.D.)--Massachusetts Institute of Technology.
+
+\bibitem[Loe05]{Loehr.03}
+N.~A. Loehr, \emph{Conjectured statistics for the higher {$q,t$}-{C}atalan
+  sequences}, Electron. J. Combin. \textbf{12} (2005), Research Paper 9, 54.
+
+\bibitem[MS16]{Morse.Schilling.2016}
+J.~Morse and A.~Schilling, \emph{Crystal approach to affine {S}chubert
+  calculus}, Int. Math. Res. Not. IMRN (2016), no.~8, 2239--2294.
+
+\bibitem[MSOI{\etalchar{+}}02]{milo2002network}
+R.~Milo, S.~Shen-Orr, S.~Itzkovitz, N.~Kashtan, D.~Chklovskii, and U.~Alon,
+  \emph{Network motifs: simple building blocks of complex networks}, Science
+  \textbf{298} (2002), no.~5594, 824--827.
+
+\bibitem[NS17]{NS.16}
+R.~Nath and J.~A. Sellers, \emph{Abaci structures of {$(s, ms\pm 1)$}-core
+  partitions}, Electr. J. Comb. \textbf{24} (2017), no.~1, P1.5.
+
+\bibitem[PCJ04]{prvzulj2004modeling}
+N.~Pr{\v{z}}ulj, D.~G. Corneil, and I.~Jurisica, \emph{Modeling interactome:
+  scale-free or geometric?}, Bioinformatics \textbf{20} (2004), no.~18,
+  3508--3515.
+
+\bibitem[PCJ06]{prvzulj2006efficient}
+N.~Pr{\v{z}}ulj, D.~G. Corneil, and I.~Jurisica, \emph{Efficient estimation of
+  graphlet frequency distributions in protein--protein interaction networks},
+  Bioinformatics \textbf{22} (2006), no.~8, 974--980.
+
+\bibitem[RA15]{nr-aaai15}
+R.~A. Rossi and N.~K. Ahmed, \emph{The network data repository with interactive
+  graph analytics and visualization}, Proceedings of the Twenty-Ninth AAAI
+  Conference on Artificial Intelligence, 2015.
+
+\bibitem[RBAH14]{rahman2014graft}
+M.~Rahman, M.~A. Bhuiyan, and M.~Al~Hasan, \emph{Graft: An efficient graphlet
+  counting method for large graph analysis}, IEEE Transactions on Knowledge and
+  Data Engineering \textbf{26} (2014), no.~10, 2466--2478.
+
+\bibitem[Ser10]{Serrano.2010}
+L.~Serrano, \emph{The shifted plactic monoid}, Math. Z. \textbf{266} (2010),
+  no.~2, 363--392.
+
+\bibitem[Sin92]{Sinclair1992}
+A.~Sinclair, \emph{Improved bounds for mixing rates of markov chains and
+  multicommodity flow}, pp.~474--487, Springer Berlin Heidelberg, Berlin,
+  Heidelberg, 1992.
+
+\bibitem[Sni02]{snijders2002markov}
+T.~A. Snijders, \emph{Markov chain monte carlo estimation of exponential random
+  graph models}, Journal of Social Structure, Citeseer, 2002.
+
+\bibitem[Sta84]{Stanley.1984}
+R.~P. Stanley, \emph{On the number of reduced decompositions of elements of
+  {C}oxeter groups}, European J. Combin. \textbf{5} (1984), no.~4, 359--372.
+
+\bibitem[Ste89]{Stembridge.1989}
+J.~R. Stembridge, \emph{Shifted tableaux and the projective representations of
+  symmetric groups}, Adv. Math. \textbf{74} (1989), no.~1, 87--134.
+
+\bibitem[Str16]{Straub.16}
+A.~Straub, \emph{Core partitions into distinct parts and an analog of {E}uler's
+  theorem}, European J. Combin. \textbf{57} (2016), 40--49.
+
+\bibitem[WLR{\etalchar{+}}14]{Wang2014psrw}
+P.~Wang, J.~C.~S. Lui, B.~Ribeiro, D.~Towsley, J.~Zhao, and X.~Guan,
+  \emph{Efficiently estimating motif statistics of large networks}, ACM Trans.
+  Knowl. Discov. Data \textbf{9} (2014), no.~2, 8:1--8:27.
+
+\bibitem[WP96]{wasserman1996logit}
+S.~Wasserman and P.~Pattison, \emph{Logit models and logistic regressions for
+  social networks: I. an introduction to markov graphs andp}, Psychometrika
+  \textbf{61} (1996), no.~3, 401--425.
+
+\bibitem[WS98]{watts1998collective}
+D.~J. Watts and S.~H. Strogatz, \emph{Collective dynamics of
+  ‘small-world’networks}, nature \textbf{393} (1998), no.~6684, 440--442.
+
+\bibitem[Xioa]{Xiong.15}
+H.~Xiong, \emph{Core partitions with distinct parts}, \mbox{1508.07918}.
+
+\bibitem[Xiob]{Xiong.17}
+\bysame, \emph{On the largest sizes of certain simultaneous core partitions
+  with distinct parts}, \mbox{1709.00617}.
+
+\bibitem[YQJZ17]{YQJZ.16}
+S.~H.~F. Yan, G.~Qin, Z.~Jin, and R.~D.~P. Zhou, \emph{On {$(2k+1,2k+3)$}-core
+  partitions with distinct parts}, Discrete Math. \textbf{340} (2017), no.~6,
+  1191--1202.
+
+\bibitem[Zal]{Zaleski.17}
+A.~Zaleski, \emph{Explicit expressions for the moments of the size of an $(n,
+  dn-1)$-core partition with distinct parts}, \mbox{1702.05634}.
+
+\bibitem[ZZ17]{ZZ.16}
+A.~Zaleski and D.~Zeilberger, \emph{Explicit expressions for the expectation,
+  variance and higher moments of the size of a (2n + 1, 2n + 3)-core partition
+  with distinct parts}, Journal of Difference Equations and Applications
+  \textbf{23} (2017), no.~7, 1241--1254.
+
+\end{thebibliography}

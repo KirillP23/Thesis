@@ -1,0 +1,116 @@
+% Use this file to load additional packages or define macro
+% commands that will be used in the dissertation.
+%
+\makeatletter    
+\def\l@subsection{\@tocline{1}{0,2pt}{2pc}{8mm}{\ \ }} 
+\def\l@subsubsection{\@tocline{2}{0,2pt}{4pc}{8mm}{\ \ }}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.1,0.1,0.1}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tblr,
+  language=Python,
+  aboveskip=5mm,
+  belowskip=5mm,
+  showstringspaces=false,
+  extendedchars=true,
+  basicstyle=\linespread{1.1}\small\ttfamily,
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{black},
+  tabsize=4
+}
+
+\usepackage{graphics, graphicx, xcolor}
+
+\definecolor{darkred}{RGB}{139,0,0} % darkred color
+\newcommand{\darkred}{\color{darkred}} % darkred command
+\newcommand{\defn}[1]{\emph{\darkred #1}} % emphasis of a definition
+\definecolor{darkblue}{RGB}{0,0,139} 
+\newcommand{\darkblue}{\color{darkblue}} 
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
+\usepackage{caption}
+\usepackage{subcaption} %%% optional but probably necessary
+\usepackage{amsfonts,amsmath,amsxtra,amsthm,amssymb,tikz,latexsym}
+\usepackage{mathrsfs}
+
+\usepackage{booktabs}
+\usepackage{algorithm,algorithmic}
+\usepackage{dsfont}
+\usepackage{multirow}
+
+\usepackage[vcentermath, enableskew]{youngtab}
+\usepackage{lipsum,  verbatim}
+\usepackage{mathtools}
+\usepackage{txfonts}
+
+
+\newcommand{\onep}{1'}
+\newcommand{\twop}{2'}
+\newcommand{\threep}{3'}
+\newcommand{\fourp}{4'}
+\newcommand{\fivep}{5'}
+\newcommand{\sixp}{6'}
+\newcommand{\sevenp}{7'}
+\newcommand{\eightp}{8'}
+\newcommand{\ninep}{9'}
+\newcommand{\iprime}{i'}
+\newcommand{\jprime}{j'}
+\newcommand{\minustwop}{\textrm{-}2'}
+\newcommand{\minusonep}{\textrm{-}1'}
+\newcommand{\minustwo}{\textrm{-}2}
+\newcommand{\minusone}{\textrm{-}1}
+\newcommand{\boldtwo}{\mathbf{2}}
+\newcommand{\boldthree}{\mathbf{3}}
+\newcommand{\boldtwop}{\mathbf{2'}}
+\newcommand{\boldthreep}{\mathbf{3'}}
+\newcommand{\boldi}{\boldsymbol{i}}
+
+\newcommand{\begeq}{\begin{equation}}
+\newcommand{\eneq}{\end{equation}}
+\newcommand{\begeqno}{\begin{equation*}}
+\newcommand{\eneqno}{\end{equation*}}
+\newcommand{\wt}{\mathrm{wt}}
+\newcommand{\nz}{\mathrm{nz}}
+
+\def\ind{\mathds{1}}
+\def\E{\mathbb{E}}
+\def\P{\mathbb{P}}
+\def\Cov{\mathrm{Cov}}
+\def\Var{\mathrm{Var}}
+\def\deg{\mathrm{deg}}
+\def\cV{\mathcal{V}}
+\def\cN{\mathcal{N}}
+\def\co{\mathrm{co}}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+%%% environments
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{proposition}{Proposition}[section]
+%\newtheorem{lemma}{Lemma}[section]
+%\newtheorem{corollary}{Corollary}[section]
+%\newtheorem{remark}{Remark}[section]
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{claim}{Claim}

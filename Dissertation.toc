@@ -1,0 +1,54 @@
+\contentsline {section}{\tocsection {}{}{Abstract}}{v}{section*.1}
+\contentsline {section}{\tocsection {}{}{Acknowledgments}}{vi}{section*.2}
+\contentsline {chapter}{\tocchapter {Chapter}{1}{Introduction}}{1}{chapter.1}
+\contentsline {section}{\tocsection {}{1.1}{Crystals and type $C$ Stanley Symmetric Functions.}}{1}{section.1.1}
+\contentsline {subsection}{\tocsubsection {}{1.1.1}{Schur functions}}{1}{subsection.1.1.1}
+\contentsline {subsection}{\tocsubsection {}{1.1.2}{Stanley symmetric functions}}{2}{subsection.1.1.2}
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Crystal Analysis of type $C$ Stanley Symmetric Functions }}{3}{chapter.2}
+\contentsline {section}{\tocsection {}{2.1}{Introduction}}{3}{section.2.1}
+\contentsline {subsection}{\tocsubsection {}{}{Acknowledgments}}{4}{section*.3}
+\contentsline {section}{\tocsection {}{2.2}{Background}}{4}{section.2.2}
+\contentsline {subsection}{\tocsubsection {}{2.2.1}{Type $C$ Stanley symmetric functions}}{4}{subsection.2.2.1}
+\contentsline {subsection}{\tocsubsection {}{2.2.2}{Type $A$ crystal of words}}{5}{subsection.2.2.2}
+\contentsline {section}{\tocsection {}{2.3}{Crystal isomorphism}}{6}{section.2.3}
+\contentsline {subsection}{\tocsubsection {}{2.3.1}{Kra\'skiewicz insertion}}{6}{subsection.2.3.1}
+\contentsline {subsection}{\tocsubsection {}{2.3.2}{Mixed insertion}}{11}{subsection.2.3.2}
+\contentsline {section}{\tocsection {}{2.4}{Explicit crystal operators on shifted primed tableaux}}{15}{section.2.4}
+\contentsline {section}{\tocsection {}{2.5}{Implementation in Sage}}{20}{section.2.5}
+\contentsline {section}{\tocsection {}{2.6}{Proof of Theorem\nobreakspace \ref {theorem.main2}}}{23}{section.2.6}
+\contentsline {subsection}{\tocsubsection {}{2.6.1}{Preliminaries}}{23}{subsection.2.6.1}
+\contentsline {subsection}{\tocsubsection {}{2.6.2}{Proof of Theorem\nobreakspace \ref {theorem.main2}}}{28}{subsection.2.6.2}
+\contentsline {section}{\tocsection {}{2.7}{Proof of Theorem\nobreakspace \ref {theorem.main3}}}{33}{section.2.7}
+\contentsline {subsection}{\tocsubsection {}{2.7.1}{Preliminaries}}{33}{subsection.2.7.1}
+\contentsline {subsection}{\tocsubsection {}{2.7.2}{Proof of Theorem\nobreakspace \ref {theorem.main3}}}{37}{subsection.2.7.2}
+\contentsline {section}{\tocsection {}{2.8}{Outlook}}{37}{section.2.8}
+\contentsline {chapter}{\tocchapter {Chapter}{3}{Cores with distinct parts and bigraded Fibonacci numbers }}{38}{chapter.3}
+\contentsline {section}{\tocsection {}{3.1}{Introduction}}{38}{section.3.1}
+\contentsline {subsection}{\tocsubsection {}{}{Acknowledgments}}{40}{section*.5}
+\contentsline {section}{\tocsection {}{3.2}{Background and notation}}{40}{section.3.2}
+\contentsline {section}{\tocsection {}{3.3}{Simultaneous cores with distinct parts.}}{44}{section.3.3}
+\contentsline {section}{\tocsection {}{3.4}{Maximum size of $(a,a+1)$-cores with distinct parts.}}{46}{section.3.4}
+\contentsline {section}{\tocsection {}{3.5}{Number of $(2k-1,2k+1)$-cores with distinct parts.}}{48}{section.3.5}
+\contentsline {section}{\tocsection {}{3.6}{Graded Fibonacci numbers and $(a,as+1)$-cores with distinct parts.}}{51}{section.3.6}
+\contentsline {section}{\tocsection {}{3.7}{Bounce statistic and bigraded Fibonacci numbers.}}{57}{section.3.7}
+\contentsline {chapter}{\tocchapter {Chapter}{4}{Estimating Graphlet Statistics via Lifting }}{62}{chapter.4}
+\contentsline {section}{\tocsection {}{4.1}{Introduction}}{62}{section.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.1.1}{Our contributions}}{64}{subsection.4.1.1}
+\contentsline {section}{\tocsection {}{4.2}{Sampling graphlets}}{65}{section.4.2}
+\contentsline {subsection}{\tocsubsection {}{4.2.1}{Definitions and notation}}{65}{subsection.4.2.1}
+\contentsline {subsection}{\tocsubsection {}{4.2.2}{Prior graphlet sampling methods}}{65}{subsection.4.2.2}
+\contentsline {section}{\tocsection {}{4.3}{Subgraph lifting}}{68}{section.4.3}
+\contentsline {subsection}{\tocsubsection {}{4.3.1}{Ordered lift estimator}}{69}{subsection.4.3.1}
+\contentsline {subsection}{\tocsubsection {}{4.3.2}{Unordered lift estimator}}{71}{subsection.4.3.2}
+\contentsline {subsection}{\tocsubsection {}{4.3.3}{Sampling a starting vertex}}{72}{subsection.4.3.3}
+\contentsline {section}{\tocsection {}{4.4}{Theoretical Analysis of Lifting}}{74}{section.4.4}
+\contentsline {section}{\tocsection {}{4.5}{Experiments}}{77}{section.4.5}
+\contentsline {subsection}{\tocsubsection {}{4.5.1}{Relative Error given limited queries}}{78}{subsection.4.5.1}
+\contentsline {subsection}{\tocsubsection {}{4.5.2}{Variation and correlation of samples}}{79}{subsection.4.5.2}
+\contentsline {section}{\tocsection {}{4.6}{Supplement to "Estimating Graphlets via Lifting"}}{81}{section.4.6}
+\contentsline {subsection}{\tocsubsection {}{4.6.1}{Proof of Prop. \ref {prop:unbiased}.}}{81}{subsection.4.6.1}
+\contentsline {subsection}{\tocsubsection {}{4.6.2}{Proof of Theorem \ref {thm:var_bd}.}}{81}{subsection.4.6.2}
+\contentsline {subsection}{\tocsubsection {}{4.6.3}{Proof of Theorem \ref {thm:cor_bd}}}{81}{subsection.4.6.3}
+\contentsline {section}{\tocsection {}{4.7}{Conclusion}}{82}{section.4.7}
+\contentsline {chapter}{\tocappendix {Appendix}{A}{Long Title of Appendix A }}{84}{appendix.A}
+\contentsline {chapter}{\tocchapter {\chaptername }{}{Bibliography}}{85}{appendix*.17}

@@ -5,31 +5,35 @@ Therefore, the reader can follow the chapters in any order, depending on their a
 
 In this chapter we introduce the necessary background and describe the main results of each chapter to follow.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crystals and type $C$ Stanley Symmetric Functions.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The goal of this project is to find a Schur decomposition of the type $C$ Stanley symmetric functions.
 We'll start with general theory of symmetric functions.
 
 \subsection{Schur functions}
 
+A \defn{partition} $\lambda$ of $n$ is a finite non-increasing sequence $(\lambda_1, \lambda_2, \ldots, \lambda_l)$ of positive integers which sum up to $n$. Integers $\lambda_i$ are called \defn{parts} of the partition $\lambda$ and $n$ is called the \defn{size} of the partition.
+
 A \defn{Young diagram} is a finite collection of boxes, or cells, arranged in left-justified rows, with row lengths in non-decreasing order.
-The non-decreasing row lengths form a \defn{partition} $\lambda=(\lambda_1,\ldots,\lambda_s)$, called a \defn{shape} of the Young diagram.
+The non-decreasing row lengths form a partition $\lambda=(\lambda_1,\ldots,\lambda_s)$, called a \defn{shape} of the Young diagram.
 
 A \defn{semistandard Young tableau} $T$ is obtained by filling the boxes of the Young diagram with positive integers so that entries weakly increase along each row, and strictly increasing along each column.
-The \defn{weight} of a semistandard Young tableau $w(T)$ is vector $(w_1, w_2, \ldots)$, where $w_i$ counts the number of occurrences of the number $i$ in $T$.
+The \defn{weight} of a semistandard Young tableau $\wt(T)$ is vector $(w_1, w_2, \ldots)$, where $w_i$ counts the number of occurrences of the number $i$ in $T$.
 
 A \defn{Schur function} $s_\lambda(\mathbf{x})$ is defined to be the characteristic function of the set of all semistandard Young tableaux of shape $\lambda$.
 That is,
 \begeqno
-	s_\lambda(x_1,x_2,\ldots) = \sum_T x_1^{w_1}x_2^{w_2}\ldots = \sum_T \mathbf{x}^{w(T)},
+	s_\lambda(x_1,x_2,\ldots) = \sum_T x_1^{w_1}x_2^{w_2}\ldots = \sum_T \mathbf{x}^{\wt(T)},
 \eneqno
 where the sum is taken over all semistandard Young tableau of shape $\lambda$.
-Here, we used notation $\mathbf{x} = (x_1,x_2,\ldots)$ to represent the infinite vector of variables $x_i$.
+Here $\mathbf{x} = (x_1, x_2, x_3, \ldots)$ and $\mathbf{x}^{\mathbf{v}} = x_1^{v_1} x_2^{v_2} x_3^{v_3} \cdots$.
 
-Schur functions play an important role in algebraic combinatorics and representation theory because they represent characters of irreducible representations of the symmetric group, so they often serve as building blocks for characters of symmetric group representations.
+Schur functions play an important role in algebraic combinatorics and representation theory, since they represent characters of irreducible representations of the symmetric group, so they often serve as building blocks for characters of symmetric group representations.
 Therefore, decomposing a symmetric function $F$ into a linear combination of Schur functions is important for understanding representation corresponding to function $F$.
 
-The representation $F(\mathbf{x}) = \sum_\lambda K_\lambda s_\lambda(\mathbf{x})$ is called a \defn{Schur decomposition}.
+The sum $F(\mathbf{x}) = \sum_\lambda K_\lambda s_\lambda(\mathbf{x})$ is called a \defn{Schur decomposition}.
 Our goal is to find a Schur decomposition of type $C$ Stanley symmetric functions.
 
 \subsection{Stanley symmetric functions}
@@ -56,17 +60,17 @@ The identity is considered to be decreasing.
 Given $w\in S_n$, a \defn{decreasing factorization} of $w$ is a factorization of $w = w^k\cdots w^1$ with $\ell(w) = \ell(w^k)+ \cdots + \ell(w^1)$ and each $w^i$ is decreasing.
 
 We denote the set of all decreasing factorizations of $w\in S_n$ by $D(w)$.
-Define the \defn{weight} of the decreasing factorization  $w^k \cdots w^1$ to be the vector $\wt(w^k \cdots w^1) = \left(\ell(w^1),\ldots,\ell(w^k)\right)$
+Define the \defn{weight} of the decreasing factorization  $w^k \cdots w^1$ to be the vector $\wt(w^k \cdots w^1) = \left(\ell(w^1),\ldots,\ell(w^k)\right)$.
 The Stanley symmetric function of type $A$ is defined as
 \begeqno
-	F^A_w(${\bf x}$) = \sum_{w^k\cdots w^1\in D(w)} x_1^{\ell(w^1)}\cdots x_k^{\ell(w^k)}.
+	F^A_w({\bf x}) = \sum_{w^k\cdots w^1\in D(w)} x_1^{\ell(w^1)}\cdots x_k^{\ell(w^k)}.
 \eneqno
 
 We define similar notions for type $C$.
 We say that a reduced word $a_1 a_2 \ldots a_\ell$ is \defn{unimodal} if there exists an index $v$, such that 
 $$a_1 > a_2 > \cdots > a_v < a_{v+1} < \cdots < a_\ell.$$
 
-Consider a reduced word $\textbf{a} = a_1 a_2 \ldots a_{\ell(w)}$ of a Coxeter group element $w$. 
+Consider a reduced word $\textbf{a} = a_1 a_2 \ldots a_{\ell(w)}$ of a Coxeter group element $w\in T_n$. 
 A \defn{unimodal factorization} of $\textbf{a}$ is a factorization 
 $\mathbf{A} = (a_1 \ldots a_{\ell_1}) (a_{\ell_1+1} \ldots a_{\ell_2}) \cdots (a_{\ell_r + 1} \ldots a_L)$ such that each factor 
 $(a_{\ell_i+1} \ldots a_{\ell_{i+1}})$ is unimodal. Factors can be empty.
@@ -82,12 +86,471 @@ For the factorization $\mathbf{A} = (2102)()(10) \in U(s_2 s_1 s_2 s_0 s_1 s_0)$
 and $\nz(\mathbf{A}) = 2$.
 \end{example}
 
+Following~\cite{Billey.Haiman.1995, Fomin.Kirillov.1996, Lam.1995}, the \defn{type $C$ Stanley symmetric function} 
+associated to $w\in T_n$ is defined as
+\begin{equation}
+\label{equation.StanleyC}
+	F^C_w(\mathbf{x}) = \sum_{\mathbf{A} \in U(w)} 2^{\nz(\mathbf{A})} 
+        \mathbf{x}^{\wt(\mathbf{A})}.
+\end{equation}
+
+The importance of Stanley symmetric functions comes from representation theory and Schubert polynomials.
+Introduced in~\cite{Stanley.1984}, those functions are stable limits 
+of Schubert polynomials, designed to study properties of reduced words of Coxeter group elements.
+
+Schubert polynomials of types $B$ and  $C$ were independently introduced by Billey and Haiman~\cite{Billey.Haiman.1995} 
+and Fomin and Kirillov~\cite{Fomin.Kirillov.1996}.
+In his Ph.D. thesis, T.K. Lam~\cite{Lam.1995} studied properties of Stanley symmetric functions of types $B$ (and similarly $C$) and $D$.
+In particular he showed, using Kra\'skiewicz insertion~\cite{Kraskiewicz.1989,Kraskiewicz.1995}, that the type $B$ Stanley 
+symmetric functions have a positive integer expansion in terms of $P$-Schur functions.
+On the other hand, Stembridge~\cite{Stembridge.1989} proved that the $P$-Schur functions expand positively in terms of Schur functions. 
+Combining these two results, it follows that Stanley symmetric functions of type $B$ (and similarly type $C$) have a positive integer expansion in terms of Schur functions.
+
+In~\cite{Morse.Schilling.2016}, the crystal structure of Schur functions was exploited to provide a combinatorial interpretation in terms of highest weight crystal elements of the coefficients in the Schur expansion of Stanley symmetric functions of type $A$.
+
+\subsection{Type $A$ crystal of words}
+
+Crystal bases~\cite{kashiwara.1994} play an important role in many areas of mathematics. For example, they make it 
+possible to analyze representation theoretic questions using combinatorial tools. Here we only review the crystal of words 
+in type $A_n$ and refer the reader for more background on crystals to~\cite{Bump.Schilling.2017}.
+
+Consider the set of words $\mathcal{B}_n^h$ of length $h$ in the alphabet $\{1,2,\ldots,n+1\}$.
+We impose a crystal structure on $\mathcal{B}_n^h$ by defining lowering operators $f_i$ and raising operators $e_i$
+for $1\leqslant i \leqslant n$ and a weight function.
+The weight of $\mathbf{b} \in \mathcal{B}_n^h$ is the tuple $\wt(\mathbf{b}) = (a_1,\ldots, a_{n+1})$, where $a_i$ is the number of letters $i$ in $\mathbf{b}$.
+The crystal operators $f_i$ and $e_i$ only depend on the letters $i$ and $i+1$ in $\mathbf{b}$.
+Consider the subword $\mathbf{b}^{\{i,i+1\}}$ of $\mathbf{b}$ consisting only of the letters $i$ and $i+1$.
+Successively bracket any adjacent pairs $(i+1) i$ and remove these pairs from the word.
+The resulting word is of the form $i^a (i+1)^b$ with $a,b\geqslant 0$.
+Then $f_i$ changes this subword within $\mathbf{b}$ to $i^{a-1} (i+1)^{b+1}$ if $a>0$ leaving all other letters unchanged and otherwise annihilates $\mathbf{b}$.
+The operator $e_i$ changes this subword within $\mathbf{b}$ to $i^{a+1} (i+1)^{b-1}$ if $b>0$ leaving all other letters unchanged and otherwise annihilates $\mathbf{b}$. 
+
+We call an element $\mathbf{b}\in \mathcal{B}_n^h$ \defn{highest weight} if $e_i(\mathbf{b})=\mathbf{0}$ for all $1\leqslant i\leqslant n$ (meaning that all $e_i$ annihilate $\mathbf{b}$).
+
+ \begin{theorem} \cite{Kashiwara.Nakashima.1994}
+ A word $\mathbf{b} = b_1 \ldots b_h \in \mathcal{B}_n^h$ is highest weight if and only if it is a Yamanouchi word.
+ That is, for any index $k$ with $1 \leqslant k \leqslant h$ the weight of a subword $b_k b_{k+1} \ldots b_h$ is a partition.
+ \end{theorem}
+
+\begin{example}
+The word $85744234654333222211111$ is highest weight.
+\end{example}
+
+Two crystals $\mathcal{B}$ and $\mathcal{C}$ are said to be \defn{isomorphic} if there exists a bijective map 
+$\Phi \colon \mathcal{B} \rightarrow \mathcal{C}$ that preserves the weight function and commutes with the crystal 
+operators $e_i$ and $f_i$. A \defn{connected component} $X$ of a crystal is a set of elements where for any two
+$\mathbf{b},\mathbf{c} \in X$ one can reach $\mathbf{c}$ from $\mathbf{b}$ by applying a sequence of $f_i$ and $e_i$.
+
+\begin{theorem} \cite{Kashiwara.Nakashima.1994}
+\label{thm:crystal1}
+Each connected component of $\mathcal{B}_n^h$ has a unique highest weight element.
+Furthermore, if $\mathbf{b}, \mathbf{c} \in \mathcal{B}_n^h$ are highest weight elements such that
+$\wt(\mathbf{b}) = \wt(\mathbf{c})$, then the connected components generated by $\mathbf{b}$ and 
+$\mathbf{c}$ are isomorphic.
+\end{theorem}
+
+We denote a connected component with a highest weight element of highest weight $\lambda$ by
+$\mathcal{B}_\lambda$. The \defn{character} of the crystal $\mathcal{B}$ is defined to be a polynomial
+in the variables $\mathbf{x}=(x_1,x_2,\ldots,x_{n+1})$
+$$\chi_{\mathcal{B}} (\mathbf{x}) = \sum_{\mathbf{b} \in \mathcal{B}} \mathbf{x}^{\wt(\mathbf{b})}.$$
+
+\begin{theorem}[\cite{Kashiwara.Nakashima.1994}]
+\label{thm:crystal2}
+The character of $\mathcal{B}_{\lambda}$ is equal to the Schur polynomial $s_\lambda (\mathbf{x})$ (or Schur 
+function in the limit $n\to \infty$).
+\end{theorem}
+
+Theorems~\ref{thm:crystal1} and \ref{thm:crystal2} are essential for our crystal analysis, as we will see below.
+
+\subsection{Our contributions}
+
+In Section~\ref{section.isomorphism}, we use {\it Kra\'skiewicz insertion} to construct a map
+\begin{equation*}
+	\mathrm{KR}'\colon {\bf A} \mapsto ({\bf P}, {\bf Q}),
+\end{equation*}
+
+where
+\begin{itemize}
+	\item ${\bf A} \in U^\pm(w)$ is a {\it signed} unimodal factorization of the type $C$ Coxeter group element $w$,
+	\item ${\bf P} \in \mathcal{UT}_w (\lambda)$ is a {\it shifted unimodal tableaux}, which serves as an insertion tableau for ${\bf A}$,
+	\item ${\bf Q} \in \mathcal{PT}^{\pm} (\lambda)$ is a {\it signed shifted primed tableaux}, which serves as a recording tableau for ${\bf A}$.
+\end{itemize}
+
+Similar to the well-known RSK insertion, recording tableau ${\bf Q}$ inherits the weight of ${\bf A}$, which allows us to break down the characteristic function of $U^\pm(w)$ (which is exactly the Stanley symmetric function of type $C$) into the sum of characteristic functions of $\mathcal{PT}^{\pm} (\lambda)$ (which are known as $Q$-Schur functions).
+
+In Section~\ref{section.explicit}, we introduce operators $f_i$ and $e_i$ on the set $\mathcal{PT} (\lambda)$ of (unsigned) shifted primed tableaux of shape $\lambda$, and in later Sections~\ref{section.proof main2} and \ref{section.proof main3} prove that those operators induce a crystal structure of type $A$.
+
+This allows us to further decompose the characteristic function of $\mathcal{PT} (\lambda)$ (which is known as $P$-Schur function) into characters of the connected components of a crystal, i.e.~Schur functions.
+
+According to Theorem~\ref{thm:crystal1}, in order to find coefficients of that decomposition, it is enough to count all highest weight elements of $\mathcal{PT} (\lambda)$.
+
+Finally, we combine all results to obtain the decomposition \ref{equation.FC}.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Cores with distinct parts and bigraded Fibonacci numbers.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{ {ch3_figures/} }
+
+For two coprime integers $a$ and $b$, the rational Catalan number $C_{a,b}$ and its bigraded generalization $C_{a,b}(q,t)$ have caught the attention of different researchers due to their connection to algebraic combinatorics and geometry \cite{AHJ.14, ALW.16, GM.16, GMV.16}. Catalan numbers can be analyzed from the perspective of different combinatorial objects: rational $(a,b)$-Dyck paths, simultaneous $(a,b)$-core partitions and abacus diagrams. 
+
+In 2015, Amdeberhan~\cite{Amdeberhan.15} conjectured that the number of $(a,a+1)$-cores with distinct parts is equal to the Fibonacci number $F_{a+1}$, and also conjectured the formulas for the largest size and the average size of such partitions. 
+
+In Chaper~\ref{ch:fibonacci} we explore cores with distinct parts in connection with Dyck paths and abacus diagrams.
+That connection also allows us to introduce bigraded Fibonacci numbers as a certain summand of bigraded Catalan numbers.
+
+\begin{figure}[t]
+\includegraphics[scale=0.29]{anderson_bijection.png} \centering
+\caption{$(9,11)$-Dyck path $\pi$ and $(9,11)$-core $\kappa$ with $\mathbf{core}(\pi) = \kappa$.} \centering
+\label{figure.anderson}
+\end{figure}
+
+\subsection{Simultaneous core partitions}
+
+A \defn{partition} $\lambda$ of $n$ is a finite non-increasing sequence $(\lambda_1, \lambda_2, \ldots, \lambda_l)$ of positive integers which sum up to $n$. 
+Integers $\lambda_i$ are called \defn{parts} of the partition $\lambda$ and $n$ is called the \defn{size} of the partition. 
+
+A partition $\lambda$ is sometimes represented by its Young diagram (we will use English notation) (see Fig.~\ref{figure.anderson}, right). 
+The \defn{hook length} of a box in the Young diagram of $\lambda$ is defined to be the number of boxes directly below and directly to the right of the given box, including that box itself. 
+
+We say that a partition $\kappa$ is an \defn{$(a,b)$-core} if there are no boxes in the Young diagram of $\kappa$ with hook length equal to $a$ or $b$. 
+Denote the set of all $(a,b)$-cores as $\mathrm{K}_{a,b}$. 
+For example, a partition $\kappa = (21, 13, 12, 8, 7, 6, 5, 3, 2,1)$ belongs to $\mathrm{K}_{9,11}$ (see Fig.~\ref{figure.anderson}).
+
+Define the size statistic on cores \defn{$\mathrm{size}(\kappa)$} to be the sum of all parts of $\kappa$.
+
+We will be interested in the set of $(a,b)$-cores with distinct parts.
+A conjecture by Amdeberhan~\cite{Amdeberhan.15}, proved later by Xiong, states the following:
+
+\begin{theorem} (Xiong, \cite{Xiong.15})
+\label{thm.s=1}
+For $(a,a+1)$-core partitions with distinct parts, we have
+\begin{enumerate}
+\item the number of such partitions is $F_{a+1}$;
+\item the largest size of such partition is $\big\lfloor \frac{1}{3} \binom{a+1}{2} \big\rfloor$;
+\item there are $\frac{3-(-1)^{a \mod 3}}{2}$ such partitions of maximal size;
+\item the total number of these partitions and the average sizes are, respectively, given by
+$$\sum_{i+j+k=a+1} F_i F_j F_k \quad \text{and} \quad \sum_{i+j+k=a+1} \frac{F_i F_j F_k}{F_{a+1}}.$$
+\end{enumerate}
+\end{theorem} 
+
+Part (1) of the above theorem was independently proved by Straub~\cite{Straub.16}.
+
+Another interesting conjecture of Amdeberhan is the number of $(2k-1, 2k+1)$-cores with distinct parts. This conjecture has been proven by Yan, Qin, Jin and Zhou:
+
+\begin{theorem} (YQJZ, \cite{YQJZ.16})
+\label{thm.r=2}
+The number of $(2k-1,2k+1)$-cores with distinct parts is equal to $2^{2k-2}$.
+\end{theorem}
+
+The proof uses somewhat complicated arguments about the poset structure of cores. Results by Zaleski and Zeilberger~\cite{ZZ.16} improve the argument using Experimental Mathematics tools in Maple. More recently Baek, Nam and Yu provided a simpler bijective proof in~\cite{BNY.17}.
+
+Another set of combinatorial objects that has caught the attention of a number of researchers \cite{NS.16, Straub.16, Xiong.17, Zaleski.17} is the set of $(a,as\pm 1)$-cores with distinct parts. In particular, there is a Fibonacci-like recursive relation for the number of such cores:
+
+\begin{theorem} (Straub, \cite{Straub.16}) 
+The number $E^{-}_s (a)$ of $(a, as-1)$-core partitions with distinct parts is characterized by $E^{-}_s(1) = 1, \ E^{-}_s(2) = s$ and, for $a \ge 3$,
+$$E^{-}_s(a) = E^{-}_s(a-1) + s E^{-}_s(a-2).$$
+\end{theorem} 
+
+\begin{theorem} (Nath and Sellers, \cite{NS.16}) 
+\label{thm.E+}
+The number $E^{+}_s (a)$ of $(a, as+1)$-core partitions with distinct parts is characterized by $E^{+}_s(1) = 1, \ E^{+}_s(2) = s+1$ and, for $a \ge 3$,
+$$E^{+}_s(a) = E^{+}_s(a-1) + s E^{+}_s(a-2).$$
+\end{theorem} 
+
+We analyze simultaneous core partitions with distinct parts in the context of Anderson's bijection, which maps $(a,b)$-cores to $(a,b)$-Dyck paths.
 
 
+\subsection{Dyck paths}
+
+For two coprime numbers $a$ and $b$ consider a rectangle $R_{a,b}$ on the square lattice with bottom-left corner at the origin and top-right corner at $(a,b)$. We call the diagonal from $(0,0)$ to $(a,b)$ the \defn{main diagonal} of the rectangle $R_{a,b}$. An \defn{$(a,b)$-Dyck path} is a lattice path from $(0,0)$ to $(a,b)$ that consists of North and East steps and that lies weakly above the main diagonal. Denote the set of $(a,b)$-Dyck paths by $\mathrm{D}_{a,b}$.
+ 
+For a box in $R_{a,b}$ with bottom-right corner coordinates $(x,y)$, define the \defn{rank of the box} to be equal to $ay-bx$ (see Fig.~\ref{figure.anderson}, left). Note that a box has positive rank if and only if it lies above the main diagonal. For a rational Dyck path $\pi$, we define the area statistic \defn{$area(\pi)$} to be the number of boxes in $R_{a,b}$ with positive ranks that are below $\pi$. 
+
+Denote the set of ranks of all the area boxes of $\pi$ as \defn{$\alpha(\pi)$}. Note that $\alpha(\pi)$ does not contain any multiples of $a$ or $b$ and it has an \defn{$(a,b)$-nested property}, that is,
+\begin{equation}
+\label{equation.nested}
+(i \in \alpha(\pi),\ i>a) \Rightarrow i-a \in \alpha(\pi), \quad (j \in \alpha(\pi),\ j>b) \Rightarrow j-b \in \alpha(\pi).
+\end{equation}
+
+Also note that $\alpha(\pi)$ completely determines the Dyck path $\pi$.
+
+\begin{remark}
+The $(a,b)$-nested property of $\alpha(\pi)$ is equivalent to the $(a,b)$-invariant property of the complement of $\alpha(\pi)$ (see~\cite{GMV.16}).
+\end{remark}
+
+Consider $i \in \{0,\ldots, a-1\}$. If we can find a column in $R_{a,b}$ with a box of rank $i$, define $e_i (\pi)$ to be the number of boxes in that column below $\pi$ and above the main diagonal. If there is no box of rank $i$ (i.e. if $b|i$), define $e_i(\pi)$ to be zero.  Note that 
+$$e_i(\pi) = \big| \big\{ x \in \alpha(\pi)\ |\ x  \equiv i \ (\mathrm{mod}\ a) \big\} \big|.$$ 
+The vector $e(\pi) = (e_0 (\pi), \ldots, e_{a-1} (\pi))$ is defined to be the \defn{area vector} of $\pi$. Note that $e_0(\pi)$ is always zero.
+
+For two coprime numbers $a$ and $b$, there is a bijection \defn{$\mathbf{path}$}$\colon\mathrm{K}_{a,b} \to \mathrm{D}_{a,b}$ from the set of $(a,b)$-cores to the set of $(a,b)$-Dyck paths due to J. Anderson~\cite{Anderson.02}.
+We can describe the map $\mathbf{path}$ by specifying how it acts on sets $\alpha$ and $\beta$, namely $\alpha(\mathbf{path} (\kappa)) = \beta(\kappa)$. 
+
+We also denote the map \defn{$\mathbf{core}$}$\colon\mathrm{D}_{a,b}\to\mathrm{K}_{a,b}$ by $\mathbf{core} = \mathbf{path}^{-1}$. It follows that $\beta(\mathbf{core}(\pi)) = \alpha(\pi)$. 
+
+Define the corresponding area statistic on cores as \defn{$area(\kappa)$}$~:=area(\mathbf{path} (\kappa))$. Note that $area(\kappa) = \left\vert{\alpha(\mathbf{path}(\kappa))}\right\vert=\left\vert{\beta(\kappa)}\right\vert$ is equal to the number of rows in partition $\kappa$. Similarly, an \defn{area vector} of $\kappa$ is defined as $c(\kappa) = \left(c_0 (\kappa),\ldots, c_{a-1} (\kappa)\right)$ with $c_i(\kappa)$ equal to the number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$. 
+
+In addition to Dyck paths and cores, we will also use the notion of abacus diagrams.
+
+\subsection{Abacus diagrams}
+
+An \defn{$a$-abacus diagram} consists of $a$ rows called runners indexed by $\{0,1, \ldots, a-1\}$. Each row represents a real line with integer positions filled with black or white beads (see Fig.~\ref{figure.abacus}, right).
+
+There is a correspondence between partitions and abacus diagrams. Let $\lambda$ be the Young diagram of a partition in Russian notation with each row going in North-East direction (see Fig.~\ref{figure.abacus}, left). Reading from left to right, the boundary of $\lambda$ (denoted by \defn{$\partial(\lambda)$}) consists of NE-steps and SE-steps. We enumerate the steps so that the first NE-step has number 0, and the enumeration is consecutively increasing for the steps going from left to right. 
+
+A corresponding $a$-abacus diagram is constructed by filling position $k$ on runner $i$ with a black bead if the step $i + ak$ of $\partial(\lambda)$ is an SE-step and filling that position with a white bead otherwise. According to our construction all negative positions on runners are filled with black beads and the bead in position 0 on runner 0 is always white. The importance of that construction becomes clear when we let partition $\lambda$ be an $a$-core. 
+
+Proposition~\ref{prop.core} and Corollary~\ref{corollary.acore} are well-known results, and we only include proofs for useful observations and notation. 
+
+\begin{figure}[t]
+\includegraphics[scale=0.27]{abacus.png} \centering
+\caption{$(4,13)$-core $(6,3,2,1)$ and the corresponding abacus diagram with $d=(0,3,0,1)$.} \centering
+\label{figure.abacus}
+\end{figure}
+
+\begin{proposition}
+\label{prop.core}
+Partition $\lambda$ is an $a$-core if and only if for any SE-step $j$ in $\partial(\lambda)$ step $j-a$ is also an SE-step.
+\end{proposition}
+\begin{proof}
+Given a box $x$ of a Young diagram in Russian notation of partition $\lambda$, there is an SE-step of $\partial(\lambda)$ directly in the NE direction of $x$ with number $se(x)$ and there is an NE-step of $\partial(\lambda)$ directly in the SE direction of $x$ with number $ne(x)$. The hook length of box $x$ is then given by $se(x)-ne(x)$.
+
+($\Leftarrow$)  If for every SE-step $j$ the step $j-a$ is also an SE-step, there is no box $x$ with $se(x)-ne(x) = a$ and $\lambda$ is an $a$-core.
+
+($\Rightarrow$) Conversely, for any pair of SE-step $j$ and NE-step $k$ with $j > k$, there exists a box $x$ with $se(x) = j$ and $ne(x) = k$. Thus, if there are no boxes $x$ of hook length $a$, there are no pairs $(j,k)$ with $j-k=a$, and for any SE-step $j$ the step $j-a$ must be also SE.
+\end{proof}
 
 
+\begin{corollary}
+\label{corollary.acore}
+A partition $\lambda$ is an $a$-core if and only if the set of black beads in the corresponding $a$-abacus diagram is left-justified, i.e. for any runner $i$ there exist an integer $d_i \ge 0$ such all positions $k < d_i$ are filled with black beads and all positions $k \ge d_i$ are filled with white beads.
+\end{corollary}
+
+\begin{proof}
+Remember that a black bead of an abacus diagram of $\lambda$ on a runner $i$ in position $k$ corresponds to an SE-step $j = i + ak$ of $\partial(\lambda)$. 
+
+Note that an abacus diagram is left-justified if and only if for any black bead on runner $i$ in position $k$, the bead in position $k-1$ is also a black one. In turn, that is equivalent to the fact that for any SE-step $j = i+ak$ of $\partial(\lambda)$ the step $j-a = i+ a(k-1)$ is also an SE-step.
+\end{proof}
+
+Given integers $d_i$ from Corollary~\ref{corollary.acore}, denote $d = (d_0, \ldots, d_{a-1})$. It is useful to think about $d_i$ as a number of black beads in nonnegative positions of a runner $i$. We will call $d$ the \defn{abacus vector} of an $a$-core $\lambda$.
+
+Denote the map from $a$-cores $\lambda$ to integer $a$-dimensional abacus vectors $d$ by \defn{$\mathbf{abac}(\lambda)$}.
+
+\begin{proposition}
+Given an $(a,b)$-core $\kappa$, the area vector $c(\kappa)$ is equal to the $a$-abacus vector $\mathbf{abac}(\kappa)$.
+\end{proposition}
+
+\begin{proof}
+Let $\mathbf{abac}(\kappa) = (d_0,\ldots,d_{a-1})$.
+We will make use of notation from Proposition~\ref{prop.core}. 
+Let $\{x_1, \ldots, x_l\}$ be the set of boxes in the first column of the Young diagram of $\kappa$. 
+Then $ne(x_i) = 0$ for any $i$ and the set $\{se(x_1), \ldots, se(x_l)\}$ covers all positive SE-steps of $\partial(\kappa)$.
+
+The hook length of $x_i$ is thus equal to $se(x_i) - ne(x_i) = se(x_i)$, and the set of hook lengths of $\{x_1,\ldots, x_l\}$ is equal to $\{se(x_1), \ldots, se(x_l)\}$.
+
+By definition, the set of hook lengths of $\{x_1,\ldots, x_l\}$ is $\beta(\kappa)$.
+The number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$ is equal to the number of positive SE-steps in $\partial(\kappa)$ with residue $i$ modulo $a$, so $c_i(\kappa) = d_i$ and $c(\kappa) = d$.
+\end{proof}
+
+\begin{corollary}
+\label{path.area.abac}
+Given $\kappa\in \mathrm{K}_{a,b}$, the abacus vector $(d_1,\ldots,d_{a-1}) = \mathbf{abac}(\kappa)$ is equal to the area vector $e(\pi)$ of the Dyck path $\pi = \mathbf{path} (\kappa)$.
+\end{corollary}
+
+From our definition $d_0$ is always equal to 0, and thus we often omit that coordinate. For an arbitrary $a$-core $\lambda$ the only condition on the other coordinates $(d_1,\ldots, d_{a-1})$ is that they are all non-negative. It is often useful to think about $(d_1,\ldots, d_{a-1})$ as coordinates of an $a$-core in $\mathbb{Z}^{a-1}$.
+
+\begin{remark}
+Embedding of the set of $(a,b)$-cores in $\mathbb{Z}^{a-1}$ has been studied from the point of view of Ehrhart theory in~\cite{Johnson.15}.
+\end{remark}
+
+To describe the area statistic in terms of vectors $d$, notice that the number of rows in $\lambda$ is equal to the number of positive SE-steps in $\partial(\lambda)$, which correspond to non-negative black beads in the $a$-abacus diagram. Thus, we define the area statistic of $d$ to be \defn{$area(d)$} $ = \sum d_i$.
+
+\subsection{Our contributions}
+
+In Section \ref{sec.r=1} we provide a simple description of the set of $(a,as+1)$-cores with distinct parts in terms of abacus diagrams:
+
+\begin{theorem}
+\label{thm.s=1.abacus}
+An $a$-core $\kappa$ is an $(a,as+1)$-core with distinct parts if and only if $d=\mathbf{abac}(\kappa)$ has entries $d_i \leq s$ and the support set $\mathrm{supp}(d) = \{i: d_i > 0\}$ is an $a$-sparse set, i.e. 
+$$i\in \mathrm{supp}(d)\quad \Rightarrow\quad i-1,i+1 \notin \mathrm{supp}(d).$$
+\end{theorem}
+
+This description also allows us to give another proof of Theorem~\ref{thm.s=1} parts (1), (2) and (3) in Section \ref{sec.s=1}. 
+
+In Section~\ref{sec.r=2} we use the connection between cores and Dyck paths to provide another simple proof of Theorem~\ref{thm.r=2}. 
+
+In Section~\ref{sec.r=1} we also introduce graded Fibonacci numbers
+\begin{equation*}
+F_{a,b}(q) = \sum_{\kappa} q^{area(\kappa)},
+\end{equation*}
+where the sum is taken over all $(a,b)$-cores $\kappa$ with distinct parts and $area$ is some statistic on $(a,b)$-cores. We show that $F_{a,a+1} (1) = F_{a+1}$- the regular Fibonacci sequence, and prove recursive relations for $F^{(s)}_a (q) := F_{a,as+1} (q)$. Using properties of $F_{a,a+1} (q)$ we provide another proof of Theorem~\ref{thm.E+} and another proof of Theorem~\ref{thm.s=1} part (4). 
+
+In Section~\ref{section.bigraded} we introduce bigraded Fibonacci number as a summand of bigraded Catalan numbers:
+\begin{equation*}
+F^{(s)}_a (q,t) = \sum_{\pi} q^{area(\pi)} t^{bounce(\pi)},
+\end{equation*}
+where the sum is taken over all $(a,as+1)$- Dyck paths corresponding to $(a,as+1)$-cores with distinct parts, and statistics $(area, bounce)$ are two standard statistics on Dyck paths (see~\cite{Loehr.03}).
+
+Using abacus diagrams, we can get a simple formula for $F^{(s)}_a (q,t)$ and prove a theorem that gives recursive relations similar to the recursive relations for regular Fibonacci numbers. We use the standard notation $(s)_r = 1+r +\cdots+r^{s-1}$.
+\begin{theorem}
+Normalized bigraded Fibonacci numbers $\tilde F^{(s)}_a (q,t)$ satisfy the recursive relations
+\begin{equation*}
+\tilde F^{(s)}_{a+1} (q,t) = \tilde F^{(s)}_{a} (q,t) + qt^a \left(s\right)_{qt^a} \tilde F^{(s)}_{a-1} (q,t) = \tilde F^{(s)}_{a} (qt,t) + qt \left(s\right)_{qt} \tilde F^{(s)}_{a-1} (qt^2,t),
+\end{equation*}
+with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
+\end{theorem}
+
+%\subsection*{Acknowledgments}
+%The author would like to thank Evgeny Gorskiy, Anne Schilling and Tewodros Amdeberhan for suggesting the problem and providing helpful discussions and comments.
+%This research was partially supported by NSF grant DMS-1500050.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estimating graphlet statistics via Lifting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{ {ch4_figures/} }
+
+    %Broad intro
+    In 1970, \cite{davis1970clustering} discovered that transitivity---the tendency of friends of friends to be friends themselves---is a prevalent feature in social networks.
+    Since that early discovery, real-world networks have been observed to have many other common macroscopic features, and these discoveries have led to probabilistic models for networks that display these phenomena.
+    The observation that transitivity and other common subgraphs are prevalent in networks motivated the exponential random graph model (ERGM) \cite{frank1986markov}.
+    \cite{barabasi1999emergence} demonstrated that many large networks display a scale-free power law degree distribution, and provided a model for constructing such graphs.
+    Similarly, the small world phenomenon---that networks display surprisingly few degrees of separation---motivated the network model in \cite{watts1998collective}.
+    While network science is often driven by the observation and modelling of common properties in networks, it is incumbent on the practicing data scientist to explore network data using statistical methods. 
+    
+    One approach to understanding network data is to fit free parameters in these network models to the data through likelihood-based or Bayesian methods. 
+    In \cite{wasserman1996logit}, a pseudolikelihood method was used with graphlet counts to fit an ERGM designed to display transitivity, and Monte Carlo Markov Chain (MCMC) methods were developed in \cite{snijders2002markov} for fitting general ERGMs.
+	Fitting such models from data can be cumbersome, and to do so implicitly assumes that the network follows such a model exactly.
+	Network statistics, such as the clustering coefficient, algebraic connectivity, and degree sequence, are more flexible tools.
+	A good statistic can be used to fit and test models, for example, \cite{watts1998collective} used the local clustering coefficient, a measure of the number of triangles relative to wedges, to test if a network is a small-world graph.
+	The clustering coefficient is also used to understand social network graphs, \cite{chakrabarti2006graph}.
+	More generally, it was discovered that re-occurring subgraph patterns can be used to differentiate real-world networks, and that genetic networks, neural networks, and internet networks all presented different common interconnectivity patterns, \cite{milo2002network}.
+	In Chapter~\ref{ch:lift}, we will propose a new method for counting the occurrences of any subgraph pattern, otherwise known as {\em graphlets}---a term coined in \cite{prvzulj2004modeling}---or motifs.
+	
+\def\mygraphletwidth{0.08\textwidth}
+\def\mybiggraphletwidth{0.10\textwidth}
+
+\begin{figure}[th]
+\hspace*{\fill}
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_2-1.png}
+  \caption*{$H_1^{(2)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_3-1.png}
+  \caption*{$H_1^{(3)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_3-2.png}
+  \caption*{$H_2^{(3)}$}
+\end{subfigure}
+\hspace*{\fill}
+\vskip 5pt
+\hspace*{\fill}
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-1.png}
+  \caption*{$H_1^{(4)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-2.png}
+  \caption*{$H_2^{(4)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-3.png}
+  \caption*{$H_3^{(4)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-4.png}
+  \caption*{$H_4^{(4)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-5.png}
+  \caption*{$H_5^{(4)}$}
+\end{subfigure}\hspace*{\fill}
+\begin{subfigure}{\mygraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_4-6.png}
+  \caption*{$H_6^{(4)}$}
+\end{subfigure}
+\hspace*{\fill}
+\vskip 5pt
+\hspace*{\fill}
+\begin{subfigure}{\mybiggraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_5-1.png}
+  \captionof*{figure}{$H_1^{(5)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mybiggraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_5-8.png}
+  \caption*{$H_8^{(5)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mybiggraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_5-11.png}
+  \caption*{$H_{11}^{(5)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mybiggraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_5-19.png}
+  \caption*{$H_{19}^{(5)}$}
+\end{subfigure}\hfill
+\begin{subfigure}{\mybiggraphletwidth}
+  \includegraphics[width=\linewidth]{graphlet_5-21.png}
+  \caption*{$H_{21}^{(5)}$}
+\end{subfigure}\hspace*{\fill}
+\vspace{-.1cm}
+\caption{Examples of graphlets}
+\vspace{-.1cm}
+\label{fig:graphlets}
+\end{figure}
+
+	
+	\subsection{Graphlets}
+	A graphlet is a small connected graph topology, such as a triangle, wedge, or $k$-clique, which we will use to describe the local behavior of a larger network (example graphlets of size 3, 4, and 5, can be seen in Figure \ref{fig:graphlets}).
+	Let the graph in question be $G = (V,E)$ where $V$ is a set of vertices and $E$ is a set of unordered pairs of vertices ($G$ is assumed to be undirected and unweighted).
+	Imagine specifying a $k$-graphlet and testing for every induced subgraph of the graph (denoted $G|\{v_1,\ldots,v_k\}$ where $v_1,\ldots,v_k \in V$), if it is isomorphic to the subgraph (it has the same topology).
+	We would like to compute the number of Connected Induced Subgraphs of size $k$ (denoted by {\em $k$-CIS} throughout) for which this match holds.
+	We call this number the {\em graphlet counts} and the proportion of the number of such matches to the total number of $k$-CISs is called the {\em graphlet coefficient}.
+	
+    Graphlets are the graph analogue of wavelets (small oscillatory functions that are convolved with a signal to produce wavelet coefficients) because they are small topologies that are matched to induced subgraphs of the original graph to produce the graphlet coefficients.
+	Graphlet coefficients, also referred to as graph moments, are used in the method of moments to fit certain graph models by selecting parameters that match the empirical graph moments to their expectations \cite{bickel2011method}.
+	
+	Graphlet coefficients are used to understand biological networks, such as the protein-protein interaction network, and reoccuring patterns are thought to indicate evolutionary conserved modules \cite{prvzulj2006efficient}. 
+	If the graphlet size, $k$, is small then testing for isomorphism, a problem called graph matching \cite{cordella2004sub}, is feasible, but testing every induced subgraph can require on the order of $n^k$ iterations in its most naive implementation.
+	We propose a class of methods called lifting that allow us to quickly estimate graphlet coefficients.
+
+	\subsection{Graphlet sampling}
+	
+	While there exist several algorithms that can estimate the proportion of triangles, wedges, and graphlets with four or five vertices (for example, \cite{Ahmed2017count, rahman2014graft}), there are few algorithms that can efficiently estimate the proportion of larger graphlets.
+	
+	Many methods that can handle arbitrary graphlets are Monte Carlo sampling procedures that traverse through the space of all graphlets of a certain size within the large network.
+	Two such methods are GUISE algorithm of \cite{bhuiyan2012guise} and the pairwise subgraph random walk of \cite{Wang2014psrw}, which differ in the way that they perform a random walk between the CIS samples.
+	
+	Another option is to generate a sequence of vertices that induces a CIS sample, which has been done in \cite{Han2016waddling} using an algorithm called Waddling random walk.
+	
+	Alternatives to random Monte Carlo schemes include the color coding scheme of \cite{Bressan2017colourcoding}, but it processes the whole graph, while the Monte Carlo schemes can traverse the network locally.
+	
+    In Chapter~\ref{ch:lift}, we propose a new Monte Carlo algorithm, called lifting, for estimating the graphlet counts within a large network.
+    The lifting step takes a smaller CIS of size $k-1$ and produces a subgraph of size $k$ by adding an adjacent vertex to it (according to a specific scheme).  
+    We consider procedures that start from vertices or edges and lift to sample CIS of size $k$.
+	Lifting is a simple, flexible procedure that can be easily distributed to accommodate massive network datasets.
+	
+	\subsection{Our contributions}
+	
+	Graphlet coefficients are multipurpose statistical tools that can be used for model fitting and testing, network regression, and exploratory analysis for network data.
+    Any CIS Monte Carlo sampling scheme has three goals: that it provides unbiased estimates of the graphlet coefficients, that the variance of the estimated coefficients is small, and that it does so in as few iterations as possible.
+    
+    Because massive graphs are often stored in distributed databases, we would like the sampling scheme to require only neighborhood queries (requests to the database returns the neighbors of a node) and we will avoid storing or processing the full graph.
+    Because communication is often the bottleneck in distributed computing, neighborhood queries are the basic unit for measuring computational time complexity.
+    
+    After discussing the precise requirements for any CIS sampling procedure, we will introduce the lifting scheme for subgraphs.
+    
+    The key difficulty in any Monte Carlo method for graphlet counting is calculating the sampling distribution.
+    We provide two methods, the ordered lift estimator and the unordered lift estimator, which differ in the way that subgraphs are represented and counted in the graphlet count.
+    The ordered estimator allows for a modification, called {\em shotgun sampling} that samples multiple subgraphs in one shot. 
+    
+    For our theoretical component, we prove that the estimated graphlet coefficients are unbiased when the underlying MCMC has reached the stationary distribution (called perfect mixing).
+    We also prove that under perfect mixing, the variance of the estimator scales like $\Delta^{k-2}$ where $\Delta$ is the maximum degree, and show that the lifting scheme can have significantly lower sample correlations than the subgraph random walk.
+
+    We conclude with real-world network experiments that reinforce the contention that subgraph lifting has a lower variance than Waddling and lower sample correlation than subgraph random walks.
 
 
 

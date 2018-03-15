@@ -1,191 +1,119 @@
 \graphicspath{ {ch3_figures/} }
 
-\section{Introduction}
-
-For two coprime integers $a$ and $b$, the rational Catalan number $C_{a,b}$ and its bigraded generalization $C_{a,b}(q,t)$ have caught the attention of different researchers due to their connection to algebraic combinatorics and geometry \cite{AHJ.14, ALW.16, GM.16, GMV.16}. Catalan numbers can be analyzed from the perspective of different combinatorial objects: rational $(a,b)$-Dyck paths, simultaneous $(a,b)$-core partitions and abacus diagrams. 
-
-In 2015, Amdeberhan~\cite{Amdeberhan.15} conjectured that the number of $(a,a+1)$-cores with distinct parts is equal to the Fibonacci number $F_{a+1}$, and also conjectured the formulas for the largest size and the average size of such partitions. This conjecture has been proven by Xiong:
-
-\begin{theorem} (Xiong, \cite{Xiong.15})
-\label{thm.s=1}
-For $(a,a+1)$-core partitions with distinct parts, we have
-\begin{enumerate}
-\item the number of such partitions is $F_{a+1}$;
-\item the largest size of such partition is $\big\lfloor \frac{1}{3} \binom{a+1}{2} \big\rfloor$;
-\item there are $\frac{3-(-1)^{a \mod 3}}{2}$ such partitions of maximal size;
-\item the total number of these partitions and the average sizes are, respectively, given by
-$$\sum_{i+j+k=a+1} F_i F_j F_k \quad \text{and} \quad \sum_{i+j+k=a+1} \frac{F_i F_j F_k}{F_{a+1}}.$$
-\end{enumerate}
-\end{theorem} 
-
-Part (1) of the above theorem was independently proved by Straub~\cite{Straub.16}.
-
-Another interesting conjecture of Amdeberhan is the number of $(2k-1, 2k+1)$-cores with distinct parts. This conjecture has been proven by Yan, Qin, Jin and Zhou:
-
-\begin{theorem} (YQJZ, \cite{YQJZ.16})
-\label{thm.r=2}
-The number of $(2k-1,2k+1)$-cores with distinct parts is equal to $2^{2k-2}$.
-\end{theorem}
-
-The proof uses somewhat complicated arguments about the poset structure of cores. Results by Zaleski and Zeilberger~\cite{ZZ.16} improve the argument using Experimental Mathematics tools in Maple. More recently Baek, Nam and Yu provided a simpler bijective proof in~\cite{BNY.17}.
-
-Another set of combinatorial objects that has caught the attention of a number of researchers \cite{NS.16, Straub.16, Xiong.17, Zaleski.17} is the set of $(a,as\pm 1)$-cores with distinct parts. In particular, there is a Fibonacci-like recursive relation for the number of such cores:
-
-\begin{theorem} (Straub, \cite{Straub.16}) 
-The number $E^{-}_s (a)$ of $(a, as-1)$-core partitions with distinct parts is characterized by $E^{-}_s(1) = 1, \ E^{-}_s(2) = s$ and, for $a \ge 3$,
-$$E^{-}_s(a) = E^{-}_s(a-1) + s E^{-}_s(a-2).$$
-\end{theorem} 
-
-\begin{theorem} (Nath and Sellers, \cite{NS.16}) 
-\label{thm.E+}
-The number $E^{+}_s (a)$ of $(a, as+1)$-core partitions with distinct parts is characterized by $E^{+}_s(1) = 1, \ E^{+}_s(2) = s+1$ and, for $a \ge 3$,
-$$E^{+}_s(a) = E^{+}_s(a-1) + s E^{+}_s(a-2).$$
-\end{theorem} 
-
-In this paper, we analyze simultaneous core partitions in the context of Anderson's bijection and in Section \ref{section.description} we provide a simple description of the set of $(a,as+1)$-cores with distinct parts in terms of abacus diagrams, which also allows us to provide another proof of Theorem~\ref{thm.s=1} parts (1), (2) and (3) in Section \ref{sec.s=1}. 
-
-In Section~\ref{sec.r=2} we use the connection between cores and Dyck paths to provide another simple proof of Theorem~\ref{thm.r=2}. 
-
-In Section~\ref{sec.r=1} we introduce graded Fibonacci numbers
-\begin{equation*}
-F_{a,b}(q) = \sum_{\kappa} q^{area(\kappa)},
-\end{equation*}
-where the sum is taken over all $(a,b)$-cores $\kappa$ with distinct parts and $area$ is some statistic on $(a,b)$-cores. We show that $F_{a,a+1} (1) = F_{a+1}$- the regular Fibonacci sequence, and prove recursive relations for $F^{(s)}_a (q) := F_{a,as+1} (q)$. Using properties of $F_{a,a+1} (q)$ we provide another proof of Theorem~\ref{thm.E+} and another proof of Theorem~\ref{thm.s=1} part (4). 
-
-In Section~\ref{section.bigraded} we introduce bigraded Fibonacci number as a summand of bigraded Catalan numbers:
-\begin{equation*}
-F^{(s)}_a (q,t) = \sum_{\pi} q^{area(\pi)} t^{bounce(\pi)},
-\end{equation*}
-where the sum is taken over all $(a,as+1)$- Dyck paths corresponding to $(a,as+1)$-cores with distinct parts, and statistics $(area, bounce)$ are two standard statistics on Dyck paths (see~\cite{Loehr.03}).
-
-Using abacus diagrams, we can get a simple formula for $F^{(s)}_a (q,t)$ and prove a theorem that gives recursive relations similar to the recursive relations for regular Fibonacci numbers. We use the standard notation $(s)_r = 1+r +\cdots+r^{s-1}$.
-\begin{theorem}
-Normalized bigraded Fibonacci numbers $\tilde F^{(s)}_a (q,t)$ satisfy the recursive relations
-\begin{equation*}
-\tilde F^{(s)}_{a+1} (q,t) = \tilde F^{(s)}_{a} (q,t) + qt^a \left(s\right)_{qt^a} \tilde F^{(s)}_{a-1} (q,t) = \tilde F^{(s)}_{a} (qt,t) + qt \left(s\right)_{qt} \tilde F^{(s)}_{a-1} (qt^2,t),
-\end{equation*}
-with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
-\end{theorem}
-
-\subsection*{Acknowledgments}
-The author would like to thank Evgeny Gorskiy, Anne Schilling and Tewodros Amdeberhan for suggesting the problem and providing helpful discussions and comments.
-This research was partially supported by NSF grant DMS-1500050.
-
-
-\section{Background and notation}
-\label{section.background}
-
-For two coprime numbers $a$ and $b$ consider a rectangle $R_{a,b}$ on the square lattice with bottom-left corner at the origin and top-right corner at $(a,b)$. We call the diagonal from $(0,0)$ to $(a,b)$ the \defn{main diagonal} of the rectangle $R_{a,b}$. An \defn{$(a,b)$-Dyck path} is a lattice path from $(0,0)$ to $(a,b)$ that consists of North and East steps and that lies weakly above the main diagonal. Denote the set of $(a,b)$-Dyck paths by $\mathrm{D}_{a,b}$.
- 
-For a box in $R_{a,b}$ with bottom-right corner coordinates $(x,y)$, define the \defn{rank of the box} to be equal to $ay-bx$ (see Fig.~\ref{figure.anderson}, left). Note that a box has positive rank if and only if it lies above the main diagonal. For a rational Dyck path $\pi$, we define the area statistic \defn{$area(\pi)$} to be the number of boxes in $R_{a,b}$ with positive ranks that are below $\pi$. 
-
-\begin{figure}[t]
-\includegraphics[scale=0.29]{anderson_bijection.png} \centering
-\caption{$(9,11)$-Dyck path $\pi$ and $(9,11)$-core $\kappa$ with $\mathbf{core}(\pi) = \kappa$.} \centering
-\label{figure.anderson}
-\end{figure}
-
-Denote the set of ranks of all the area boxes of $\pi$ as \defn{$\alpha(\pi)$}. Note that $\alpha(\pi)$ does not contain any multiples of $a$ or $b$ and it has an \defn{$(a,b)$-nested property}, that is,
-\begin{equation}
-\label{equation.nested}
-(i \in \alpha(\pi),\ i>a) \Rightarrow i-a \in \alpha(\pi), \quad (j \in \alpha(\pi),\ j>b) \Rightarrow j-b \in \alpha(\pi).
-\end{equation}
-
-Also note that $\alpha(\pi)$ completely determines the Dyck path $\pi$.
-
-\begin{remark}
-The $(a,b)$-nested property of $\alpha(\pi)$ is equivalent to the $(a,b)$-invariant property of the complement of $\alpha(\pi)$ (see~\cite{GMV.16}).
-\end{remark}
-
-Consider $i \in \{0,\ldots, a-1\}$. If we can find a column in $R_{a,b}$ with a box of rank $i$, define $e_i (\pi)$ to be the number of boxes in that column below $\pi$ and above the main diagonal. If there is no box of rank $i$ (i.e. if $b|i$), define $e_i(\pi)$ to be zero.  Note that 
-$$e_i(\pi) = \big| \big\{ x \in \alpha(\pi)\ |\ x  \equiv i \ (\mathrm{mod}\ a) \big\} \big|.$$ 
-The vector $e(\pi) = (e_0 (\pi), \ldots, e_{a-1} (\pi))$ is defined to be the \defn{area vector} of $\pi$. Note that $e_0(\pi)$ is always zero.
-
-A \defn{partition} $\lambda$ of $n$ is a finite non-increasing sequence $(\lambda_1, \lambda_2, \ldots, \lambda_l)$ of positive integers which sum up to $n$. Integers $\lambda_i$ are called \defn{parts} of the partition $\lambda$ and $n$ is called the \defn{size} of the partition. A partition $\lambda$ is sometimes represented by its Young diagram (we will use English notation) (see Fig.~\ref{figure.anderson}, right). The \defn{hook length} of a box in the Young diagram of $\lambda$ is defined to be the number of boxes directly below and directly to the right of the given box, including that box itself. 
-
-We say that a partition $\kappa$ is an \defn{$(a,b)$-core} if there are no boxes in the Young diagram of $\kappa$ with hook length equal to $a$ or $b$. Denote the set of all $(a,b)$-cores as $\mathrm{K}_{a,b}$. 
-For example, a partition $\kappa = (21, 13, 12, 8, 7, 6, 5, 3, 2,1)$ belongs to $\mathrm{K}_{9,11}$ (see Fig.~\ref{figure.anderson}).
-
-Define the size statistic on cores \defn{$\mathrm{size}(\kappa)$} to be the sum of all parts of $\kappa$.
-Given an $(a,b)$-core $\kappa$, denote the set of hook lengths of the boxes in the first column by \defn{$\beta(\kappa)$}. It is not hard to show that $\beta(\kappa)$ also satisfies $(a,b)$-nested property (\ref{equation.nested}) (in fact, the nested condition of $\beta(\kappa)$ and the fact that $\beta(\kappa)$ does not contain multiples of $a$ or $b$ are sufficient for $\kappa$ to be an $(a,b)$-core). Note that the set $\beta(\lambda)$ completely determines the partition $\lambda$.
-
-For two coprime numbers $a$ and $b$, there is a bijection \defn{$\mathbf{path}$}$\colon\mathrm{K}_{a,b} \to \mathrm{D}_{a,b}$ due to J. Anderson~\cite{Anderson.02}.  We can describe the map $\mathbf{path}$ by specifying how it acts on sets $\alpha$ and $\beta$, namely $\alpha(\mathbf{path} (\kappa)) = \beta(\kappa)$. 
-
-We also denote the map \defn{$\mathbf{core}$}$\colon\mathrm{D}_{a,b}\to\mathrm{K}_{a,b}$ by $\mathbf{core} = \mathbf{path}^{-1}$. It follows that $\beta(\mathbf{core}(\pi)) = \alpha(\pi)$. 
-
-Define the corresponding area statistic on cores as \defn{$area(\kappa)$}$~:=area(\mathbf{path} (\kappa))$. Note that $area(\kappa) = \left\vert{\alpha(\mathbf{path}(\kappa))}\right\vert=\left\vert{\beta(\kappa)}\right\vert$ is equal to the number of rows in partition $\kappa$. Similarly, an \defn{area vector} of $\kappa$ is defined as $c(\kappa) = \left(c_0 (\kappa),\ldots, c_{a-1} (\kappa)\right)$ with $c_i(\kappa)$ equal to the number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$. 
-
-In addition to Dyck paths and cores, we will also use the notion of abacus diagrams. An \defn{$a$-abacus diagram} consists of $a$ rows called runners indexed by $\{0,1, \ldots, a-1\}$. Each row represents a real line with integer positions filled with black or white beads (see Fig.~\ref{figure.abacus}, right).
-
-There is a correspondence between partitions and abacus diagrams. Let $\lambda$ be the Young diagram of a partition in Russian notation with each row going in North-East direction (see Fig.~\ref{figure.abacus}, left). Reading from left to right, the boundary of $\lambda$ (denoted by \defn{$\partial(\lambda)$}) consists of NE-steps and SE-steps. We enumerate the steps so that the first NE-step has number 0, and the enumeration is consecutively increasing for the steps going from left to right. 
-
-A corresponding $a$-abacus diagram is constructed by filling position $k$ on runner $i$ with a black bead if the step $i + ak$ of $\partial(\lambda)$ is an SE-step and filling that position with a white bead otherwise. According to our construction all negative positions on runners are filled with black beads and the bead in position 0 on runner 0 is always white. The importance of that construction becomes clear when we let partition $\lambda$ be an $a$-core. 
-
-Proposition~\ref{prop.core} and Corollary~\ref{corollary.acore} are well-known results, and we only include proofs for useful observations and notation. 
-
-\begin{figure}[t]
-\includegraphics[scale=0.27]{abacus.png} \centering
-\caption{$(4,13)$-core $(6,3,2,1)$ and the corresponding abacus diagram with $d=(0,3,0,1)$.} \centering
-\label{figure.abacus}
-\end{figure}
-
-
-\begin{proposition}
-\label{prop.core}
-Partition $\lambda$ is an $a$-core if and only if for any SE-step $j$ in $\partial(\lambda)$ step $j-a$ is also an SE-step.
-\end{proposition}
-\begin{proof}
-Given a box $x$ of a Young diagram in Russian notation of partition $\lambda$, there is an SE-step of $\partial(\lambda)$ directly in the NE direction of $x$ with number $se(x)$ and there is an NE-step of $\partial(\lambda)$ directly in the SE direction of $x$ with number $ne(x)$. The hook length of box $x$ is then given by $se(x)-ne(x)$.
-
-($\Leftarrow$)  If for every SE-step $j$ the step $j-a$ is also an SE-step, there is no box $x$ with $se(x)-ne(x) = a$ and $\lambda$ is an $a$-core.
-
-($\Rightarrow$) Conversely, for any pair of SE-step $j$ and NE-step $k$ with $j > k$, there exists a box $x$ with $se(x) = j$ and $ne(x) = k$. Thus, if there are no boxes $x$ of hook length $a$, there are no pairs $(j,k)$ with $j-k=a$, and for any SE-step $j$ the step $j-a$ must be also SE.
-\end{proof}
-
-
-\begin{corollary}
-\label{corollary.acore}
-A partition $\lambda$ is an $a$-core if and only if the set of black beads in the corresponding $a$-abacus diagram is left-justified, i.e. for any runner $i$ there exist an integer $d_i \ge 0$ such all positions $k < d_i$ are filled with black beads and all positions $k \ge d_i$ are filled with white beads.
-\end{corollary}
-
-\begin{proof}
-Remember that a black bead of an abacus diagram of $\lambda$ on a runner $i$ in position $k$ corresponds to an SE-step $j = i + ak$ of $\partial(\lambda)$. 
-
-Note that an abacus diagram is left-justified if and only if for any black bead on runner $i$ in position $k$, the bead in position $k-1$ is also a black one. In turn, that is equivalent to the fact that for any SE-step $j = i+ak$ of $\partial(\lambda)$ the step $j-a = i+ a(k-1)$ is also an SE-step.
-\end{proof}
-
-Given integers $d_i$ from Corollary~\ref{corollary.acore}, denote $d = (d_0, \ldots, d_{a-1})$. It is useful to think about $d_i$ as a number of black beads in nonnegative positions of a runner $i$. We will call $d$ the \defn{abacus vector} of an $a$-core $\lambda$.
-
-Denote the map from $a$-cores $\lambda$ to integer $a$-dimensional abacus vectors $d$ by \defn{$\mathbf{abac}(\lambda)$}.
-
-\begin{proposition}
-Given an $(a,b)$-core $\kappa$, the area vector $c(\kappa)$ is equal to the $a$-abacus vector $\mathbf{abac}(\kappa)$.
-\end{proposition}
-
-\begin{proof}
-Let $\mathbf{abac}(\kappa) = (d_0,\ldots,d_{a-1})$.
-We will make use of notation from Proposition~\ref{prop.core}. 
-Let $\{x_1, \ldots, x_l\}$ be the set of boxes in the first column of the Young diagram of $\kappa$. 
-Then $ne(x_i) = 0$ for any $i$ and the set $\{se(x_1), \ldots, se(x_l)\}$ covers all positive SE-steps of $\partial(\kappa)$.
-
-The hook length of $x_i$ is thus equal to $se(x_i) - ne(x_i) = se(x_i)$, and the set of hook lengths of $\{x_1,\ldots, x_l\}$ is equal to $\{se(x_1), \ldots, se(x_l)\}$.
-
-By definition, the set of hook lengths of $\{x_1,\ldots, x_l\}$ is $\beta(\kappa)$.
-The number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$ is equal to the number of positive SE-steps in $\partial(\kappa)$ with residue $i$ modulo $a$, so $c_i(\kappa) = d_i$ and $c(\kappa) = d$.
-\end{proof}
-
-\begin{corollary}
-\label{path.area.abac}
-Given $\kappa\in \mathrm{K}_{a,b}$, the abacus vector $(d_1,\ldots,d_{a-1}) = \mathbf{abac}(\kappa)$ is equal to the area vector $e(\pi)$ of the Dyck path $\pi = \mathbf{path} (\kappa)$.
-\end{corollary}
-
-From our definition $d_0$ is always equal to 0, and thus we often omit that coordinate. For an arbitrary $a$-core $\lambda$ the only condition on the other coordinates $(d_1,\ldots, d_{a-1})$ is that they are all non-negative. It is often useful to think about $(d_1,\ldots, d_{a-1})$ as coordinates of an $a$-core in $\mathbb{Z}^{a-1}$.
-
-\begin{remark}
-Embedding of the set of $(a,b)$-cores in $\mathbb{Z}^{a-1}$ has been studied from the point of view of Ehrhart theory in~\cite{Johnson.15}.
-\end{remark}
-
-To describe the area statistic in terms of vectors $d$, notice that the number of rows in $\lambda$ is equal to the number of positive SE-steps in $\partial(\lambda)$, which correspond to non-negative black beads in the $a$-abacus diagram. Thus, we define the area statistic of $d$ to be \defn{$area(d)$} $ = \sum d_i$.
+%\section{Background and notation}
+%\label{section.background}
+%
+%For two coprime numbers $a$ and $b$ consider a rectangle $R_{a,b}$ on the square lattice with bottom-left corner at the origin and top-right corner at $(a,b)$. We call the diagonal from $(0,0)$ to $(a,b)$ the \defn{main diagonal} of the rectangle $R_{a,b}$. An \defn{$(a,b)$-Dyck path} is a lattice path from $(0,0)$ to $(a,b)$ that consists of North and East steps and that lies weakly above the main diagonal. Denote the set of $(a,b)$-Dyck paths by $\mathrm{D}_{a,b}$.
+%
+%For a box in $R_{a,b}$ with bottom-right corner coordinates $(x,y)$, define the \defn{rank of the box} to be equal to $ay-bx$ (see Fig.~\ref{figure.anderson}, left). Note that a box has positive rank if and only if it lies above the main diagonal. For a rational Dyck path $\pi$, we define the area statistic \defn{$area(\pi)$} to be the number of boxes in $R_{a,b}$ with positive ranks that are below $\pi$. 
+%
+%\begin{figure}[t]
+%\includegraphics[scale=0.29]{anderson_bijection.png} \centering
+%\caption{$(9,11)$-Dyck path $\pi$ and $(9,11)$-core $\kappa$ with $\mathbf{core}(\pi) = \kappa$.} \centering
+%\label{figure.anderson}
+%\end{figure}
+%
+%Denote the set of ranks of all the area boxes of $\pi$ as \defn{$\alpha(\pi)$}. Note that $\alpha(\pi)$ does not contain any multiples of $a$ or $b$ and it has an \defn{$(a,b)$-nested property}, that is,
+%\begin{equation}
+%\label{equation.nested}
+%(i \in \alpha(\pi),\ i>a) \Rightarrow i-a \in \alpha(\pi), \quad (j \in \alpha(\pi),\ j>b) \Rightarrow j-b \in \alpha(\pi).
+%\end{equation}
+%
+%Also note that $\alpha(\pi)$ completely determines the Dyck path $\pi$.
+%
+%\begin{remark}
+%The $(a,b)$-nested property of $\alpha(\pi)$ is equivalent to the $(a,b)$-invariant property of the complement of $\alpha(\pi)$ (see~\cite{GMV.16}).
+%\end{remark}
+%
+%Consider $i \in \{0,\ldots, a-1\}$. If we can find a column in $R_{a,b}$ with a box of rank $i$, define $e_i (\pi)$ to be the number of boxes in that column below $\pi$ and above the main diagonal. If there is no box of rank $i$ (i.e. if $b|i$), define $e_i(\pi)$ to be zero.  Note that 
+%$$e_i(\pi) = \big| \big\{ x \in \alpha(\pi)\ |\ x  \equiv i \ (\mathrm{mod}\ a) \big\} \big|.$$ 
+%The vector $e(\pi) = (e_0 (\pi), \ldots, e_{a-1} (\pi))$ is defined to be the \defn{area vector} of $\pi$. Note that $e_0(\pi)$ is always zero.
+%
+%A \defn{partition} $\lambda$ of $n$ is a finite non-increasing sequence $(\lambda_1, \lambda_2, \ldots, \lambda_l)$ of positive integers which sum up to $n$. Integers $\lambda_i$ are called \defn{parts} of the partition $\lambda$ and $n$ is called the \defn{size} of the partition. A partition $\lambda$ is sometimes represented by its Young diagram (we will use English notation) (see Fig.~\ref{figure.anderson}, right). The \defn{hook length} of a box in the Young diagram of $\lambda$ is defined to be the number of boxes directly below and directly to the right of the given box, including that box itself. 
+%
+%We say that a partition $\kappa$ is an \defn{$(a,b)$-core} if there are no boxes in the Young diagram of $\kappa$ with hook length equal to $a$ or $b$. Denote the set of all $(a,b)$-cores as $\mathrm{K}_{a,b}$. 
+%For example, a partition $\kappa = (21, 13, 12, 8, 7, 6, 5, 3, 2,1)$ belongs to $\mathrm{K}_{9,11}$ (see Fig.~\ref{figure.anderson}).
+%
+%Define the size statistic on cores \defn{$\mathrm{size}(\kappa)$} to be the sum of all parts of $\kappa$.
+%Given an $(a,b)$-core $\kappa$, denote the set of hook lengths of the boxes in the first column by \defn{$\beta(\kappa)$}. It is not hard to show that $\beta(\kappa)$ also satisfies $(a,b)$-nested property (\ref{equation.nested}) (in fact, the nested condition of $\beta(\kappa)$ and the fact that $\beta(\kappa)$ does not contain multiples of $a$ or $b$ are sufficient for $\kappa$ to be an $(a,b)$-core). Note that the set $\beta(\lambda)$ completely determines the partition $\lambda$.
+%
+%For two coprime numbers $a$ and $b$, there is a bijection \defn{$\mathbf{path}$}$\colon\mathrm{K}_{a,b} \to \mathrm{D}_{a,b}$ due to J. Anderson~\cite{Anderson.02}.  We can describe the map $\mathbf{path}$ by specifying how it acts on sets $\alpha$ and $\beta$, namely $\alpha(\mathbf{path} (\kappa)) = \beta(\kappa)$. 
+%
+%We also denote the map \defn{$\mathbf{core}$}$\colon\mathrm{D}_{a,b}\to\mathrm{K}_{a,b}$ by $\mathbf{core} = \mathbf{path}^{-1}$. It follows that $\beta(\mathbf{core}(\pi)) = \alpha(\pi)$. 
+%
+%Define the corresponding area statistic on cores as \defn{$area(\kappa)$}$~:=area(\mathbf{path} (\kappa))$. Note that $area(\kappa) = \left\vert{\alpha(\mathbf{path}(\kappa))}\right\vert=\left\vert{\beta(\kappa)}\right\vert$ is equal to the number of rows in partition $\kappa$. Similarly, an \defn{area vector} of $\kappa$ is defined as $c(\kappa) = \left(c_0 (\kappa),\ldots, c_{a-1} (\kappa)\right)$ with $c_i(\kappa)$ equal to the number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$. 
+%
+%In addition to Dyck paths and cores, we will also use the notion of abacus diagrams. An \defn{$a$-abacus diagram} consists of $a$ rows called runners indexed by $\{0,1, \ldots, a-1\}$. Each row represents a real line with integer positions filled with black or white beads (see Fig.~\ref{figure.abacus}, right).
+%
+%There is a correspondence between partitions and abacus diagrams. Let $\lambda$ be the Young diagram of a partition in Russian notation with each row going in North-East direction (see Fig.~\ref{figure.abacus}, left). Reading from left to right, the boundary of $\lambda$ (denoted by \defn{$\partial(\lambda)$}) consists of NE-steps and SE-steps. We enumerate the steps so that the first NE-step has number 0, and the enumeration is consecutively increasing for the steps going from left to right. 
+%
+%A corresponding $a$-abacus diagram is constructed by filling position $k$ on runner $i$ with a black bead if the step $i + ak$ of $\partial(\lambda)$ is an SE-step and filling that position with a white bead otherwise. According to our construction all negative positions on runners are filled with black beads and the bead in position 0 on runner 0 is always white. The importance of that construction becomes clear when we let partition $\lambda$ be an $a$-core. 
+%
+%Proposition~\ref{prop.core} and Corollary~\ref{corollary.acore} are well-known results, and we only include proofs for useful observations and notation. 
+%
+%\begin{figure}[t]
+%\includegraphics[scale=0.27]{abacus.png} \centering
+%\caption{$(4,13)$-core $(6,3,2,1)$ and the corresponding abacus diagram with $d=(0,3,0,1)$.} \centering
+%\label{figure.abacus}
+%\end{figure}
+%
+%
+%\begin{proposition}
+%\label{prop.core}
+%Partition $\lambda$ is an $a$-core if and only if for any SE-step $j$ in $\partial(\lambda)$ step $j-a$ is also an SE-step.
+%\end{proposition}
+%\begin{proof}
+%Given a box $x$ of a Young diagram in Russian notation of partition $\lambda$, there is an SE-step of $\partial(\lambda)$ directly in the NE direction of $x$ with number $se(x)$ and there is an NE-step of $\partial(\lambda)$ directly in the SE direction of $x$ with number $ne(x)$. The hook length of box $x$ is then given by $se(x)-ne(x)$.
+%
+%($\Leftarrow$)  If for every SE-step $j$ the step $j-a$ is also an SE-step, there is no box $x$ with $se(x)-ne(x) = a$ and $\lambda$ is an $a$-core.
+%
+%($\Rightarrow$) Conversely, for any pair of SE-step $j$ and NE-step $k$ with $j > k$, there exists a box $x$ with $se(x) = j$ and $ne(x) = k$. Thus, if there are no boxes $x$ of hook length $a$, there are no pairs $(j,k)$ with $j-k=a$, and for any SE-step $j$ the step $j-a$ must be also SE.
+%\end{proof}
+%
+%
+%\begin{corollary}
+%\label{corollary.acore}
+%A partition $\lambda$ is an $a$-core if and only if the set of black beads in the corresponding $a$-abacus diagram is left-justified, i.e. for any runner $i$ there exist an integer $d_i \ge 0$ such all positions $k < d_i$ are filled with black beads and all positions $k \ge d_i$ are filled with white beads.
+%\end{corollary}
+%
+%\begin{proof}
+%Remember that a black bead of an abacus diagram of $\lambda$ on a runner $i$ in position $k$ corresponds to an SE-step $j = i + ak$ of $\partial(\lambda)$. 
+%
+%Note that an abacus diagram is left-justified if and only if for any black bead on runner $i$ in position $k$, the bead in position $k-1$ is also a black one. In turn, that is equivalent to the fact that for any SE-step $j = i+ak$ of $\partial(\lambda)$ the step $j-a = i+ a(k-1)$ is also an SE-step.
+%\end{proof}
+%
+%Given integers $d_i$ from Corollary~\ref{corollary.acore}, denote $d = (d_0, \ldots, d_{a-1})$. It is useful to think about $d_i$ as a number of black beads in nonnegative positions of a runner $i$. We will call $d$ the \defn{abacus vector} of an $a$-core $\lambda$.
+%
+%Denote the map from $a$-cores $\lambda$ to integer $a$-dimensional abacus vectors $d$ by \defn{$\mathbf{abac}(\lambda)$}.
+%
+%\begin{proposition}
+%Given an $(a,b)$-core $\kappa$, the area vector $c(\kappa)$ is equal to the $a$-abacus vector $\mathbf{abac}(\kappa)$.
+%\end{proposition}
+%
+%\begin{proof}
+%Let $\mathbf{abac}(\kappa) = (d_0,\ldots,d_{a-1})$.
+%We will make use of notation from Proposition~\ref{prop.core}. 
+%Let $\{x_1, \ldots, x_l\}$ be the set of boxes in the first column of the Young diagram of $\kappa$. 
+%Then $ne(x_i) = 0$ for any $i$ and the set $\{se(x_1), \ldots, se(x_l)\}$ covers all positive SE-steps of $\partial(\kappa)$.
+%
+%The hook length of $x_i$ is thus equal to $se(x_i) - ne(x_i) = se(x_i)$, and the set of hook lengths of $\{x_1,\ldots, x_l\}$ is equal to $\{se(x_1), \ldots, se(x_l)\}$.
+%
+%By definition, the set of hook lengths of $\{x_1,\ldots, x_l\}$ is $\beta(\kappa)$.
+%The number of elements in $\beta(\kappa)$ with residue $i$ modulo $a$ is equal to the number of positive SE-steps in $\partial(\kappa)$ with residue $i$ modulo $a$, so $c_i(\kappa) = d_i$ and $c(\kappa) = d$.
+%\end{proof}
+%
+%\begin{corollary}
+%\label{path.area.abac}
+%Given $\kappa\in \mathrm{K}_{a,b}$, the abacus vector $(d_1,\ldots,d_{a-1}) = \mathbf{abac}(\kappa)$ is equal to the area vector $e(\pi)$ of the Dyck path $\pi = \mathbf{path} (\kappa)$.
+%\end{corollary}
+%
+%From our definition $d_0$ is always equal to 0, and thus we often omit that coordinate. For an arbitrary $a$-core $\lambda$ the only condition on the other coordinates $(d_1,\ldots, d_{a-1})$ is that they are all non-negative. It is often useful to think about $(d_1,\ldots, d_{a-1})$ as coordinates of an $a$-core in $\mathbb{Z}^{a-1}$.
+%
+%\begin{remark}
+%Embedding of the set of $(a,b)$-cores in $\mathbb{Z}^{a-1}$ has been studied from the point of view of Ehrhart theory in~\cite{Johnson.15}.
+%\end{remark}
+%
+%To describe the area statistic in terms of vectors $d$, notice that the number of rows in $\lambda$ is equal to the number of positive SE-steps in $\partial(\lambda)$, which correspond to non-negative black beads in the $a$-abacus diagram. Thus, we define the area statistic of $d$ to be \defn{$area(d)$} $ = \sum d_i$.
 
 \section{Simultaneous cores with distinct parts.}
 \label{section.description}

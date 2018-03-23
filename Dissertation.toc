@@ -6,50 +6,53 @@
 \contentsline {subsection}{\tocsubsection {}{1.1.2}{Stanley symmetric functions}}{2}{subsection.1.1.2}
 \contentsline {subsection}{\tocsubsection {}{1.1.3}{Type $A$ crystal of words}}{4}{subsection.1.1.3}
 \contentsline {subsection}{\tocsubsection {}{1.1.4}{Our contributions}}{5}{subsection.1.1.4}
-\contentsline {section}{\tocsection {}{1.2}{Cores with distinct parts and bigraded Fibonacci numbers.}}{6}{section.1.2}
-\contentsline {subsection}{\tocsubsection {}{1.2.1}{Simultaneous core partitions}}{6}{subsection.1.2.1}
-\contentsline {subsection}{\tocsubsection {}{1.2.2}{Dyck paths}}{8}{subsection.1.2.2}
-\contentsline {subsection}{\tocsubsection {}{1.2.3}{Abacus diagrams}}{9}{subsection.1.2.3}
-\contentsline {subsection}{\tocsubsection {}{1.2.4}{Our contributions}}{11}{subsection.1.2.4}
-\contentsline {section}{\tocsection {}{1.3}{Estimating graphlet statistics via Lifting}}{12}{section.1.3}
-\contentsline {subsection}{\tocsubsection {}{1.3.1}{Graphlets}}{13}{subsection.1.3.1}
-\contentsline {subsection}{\tocsubsection {}{1.3.2}{Graphlet sampling}}{14}{subsection.1.3.2}
-\contentsline {subsection}{\tocsubsection {}{1.3.3}{Our contributions}}{15}{subsection.1.3.3}
-\contentsline {chapter}{\tocchapter {Chapter}{2}{Crystal Analysis of type $C$ Stanley Symmetric Functions }}{16}{chapter.2}
-\contentsline {section}{\tocsection {}{2.1}{Crystal isomorphism}}{16}{section.2.1}
-\contentsline {subsection}{\tocsubsection {}{2.1.1}{Kra\'skiewicz insertion}}{16}{subsection.2.1.1}
-\contentsline {subsection}{\tocsubsection {}{2.1.2}{Mixed insertion}}{21}{subsection.2.1.2}
-\contentsline {section}{\tocsection {}{2.2}{Explicit crystal operators on shifted primed tableaux}}{24}{section.2.2}
-\contentsline {section}{\tocsection {}{2.3}{Implementation in Sage}}{29}{section.2.3}
-\contentsline {section}{\tocsection {}{2.4}{Proof of Theorem\nobreakspace \ref {theorem.main2}}}{33}{section.2.4}
-\contentsline {subsection}{\tocsubsection {}{2.4.1}{Preliminaries}}{33}{subsection.2.4.1}
-\contentsline {subsection}{\tocsubsection {}{2.4.2}{Proof of Theorem\nobreakspace \ref {theorem.main2}}}{38}{subsection.2.4.2}
-\contentsline {section}{\tocsection {}{2.5}{Proof of Theorem\nobreakspace \ref {theorem.main3}}}{43}{section.2.5}
-\contentsline {subsection}{\tocsubsection {}{2.5.1}{Preliminaries}}{43}{subsection.2.5.1}
-\contentsline {subsection}{\tocsubsection {}{2.5.2}{Proof of Theorem\nobreakspace \ref {theorem.main3}}}{47}{subsection.2.5.2}
-\contentsline {section}{\tocsection {}{2.6}{Outlook}}{47}{section.2.6}
-\contentsline {chapter}{\tocchapter {Chapter}{3}{Cores with distinct parts and bigraded Fibonacci numbers }}{48}{chapter.3}
-\contentsline {section}{\tocsection {}{3.1}{Simultaneous cores with distinct parts.}}{48}{section.3.1}
-\contentsline {section}{\tocsection {}{3.2}{Maximum size of $(a,a+1)$-cores with distinct parts.}}{50}{section.3.2}
-\contentsline {section}{\tocsection {}{3.3}{Number of $(2k-1,2k+1)$-cores with distinct parts.}}{52}{section.3.3}
-\contentsline {section}{\tocsection {}{3.4}{Graded Fibonacci numbers and $(a,as+1)$-cores with distinct parts.}}{54}{section.3.4}
-\contentsline {section}{\tocsection {}{3.5}{Bounce statistic and bigraded Fibonacci numbers.}}{61}{section.3.5}
-\contentsline {chapter}{\tocchapter {Chapter}{4}{Estimating Graphlet Statistics via Lifting }}{66}{chapter.4}
-\contentsline {section}{\tocsection {}{4.1}{Sampling graphlets}}{66}{section.4.1}
-\contentsline {subsection}{\tocsubsection {}{4.1.1}{Definitions and notation}}{66}{subsection.4.1.1}
-\contentsline {subsection}{\tocsubsection {}{4.1.2}{Prior graphlet sampling methods}}{66}{subsection.4.1.2}
-\contentsline {section}{\tocsection {}{4.2}{Subgraph lifting}}{69}{section.4.2}
-\contentsline {subsection}{\tocsubsection {}{4.2.1}{Ordered lift estimator}}{70}{subsection.4.2.1}
-\contentsline {subsection}{\tocsubsection {}{4.2.2}{Unordered lift estimator}}{72}{subsection.4.2.2}
-\contentsline {subsection}{\tocsubsection {}{4.2.3}{Sampling a starting vertex}}{73}{subsection.4.2.3}
-\contentsline {section}{\tocsection {}{4.3}{Theoretical Analysis of Lifting}}{75}{section.4.3}
-\contentsline {section}{\tocsection {}{4.4}{Experiments}}{78}{section.4.4}
-\contentsline {subsection}{\tocsubsection {}{4.4.1}{Relative Error given limited queries}}{79}{subsection.4.4.1}
-\contentsline {subsection}{\tocsubsection {}{4.4.2}{Variation and correlation of samples}}{80}{subsection.4.4.2}
-\contentsline {section}{\tocsection {}{4.5}{Supplement to "Estimating Graphlets via Lifting"}}{82}{section.4.5}
-\contentsline {subsection}{\tocsubsection {}{4.5.1}{Proof of Prop. \ref {prop:unbiased}.}}{82}{subsection.4.5.1}
-\contentsline {subsection}{\tocsubsection {}{4.5.2}{Proof of Theorem \ref {thm:var_bd}.}}{82}{subsection.4.5.2}
-\contentsline {subsection}{\tocsubsection {}{4.5.3}{Proof of Theorem \ref {thm:cor_bd}}}{82}{subsection.4.5.3}
-\contentsline {section}{\tocsection {}{4.6}{Conclusion}}{83}{section.4.6}
-\contentsline {chapter}{\tocappendix {Appendix}{A}{Long Title of Appendix A }}{85}{appendix.A}
-\contentsline {chapter}{\tocchapter {\chaptername }{}{Bibliography}}{86}{appendix*.15}
+\contentsline {section}{\tocsection {}{1.2}{Cores with distinct parts and bigraded Fibonacci numbers.}}{7}{section.1.2}
+\contentsline {subsection}{\tocsubsection {}{1.2.1}{Simultaneous core partitions}}{7}{subsection.1.2.1}
+\contentsline {subsection}{\tocsubsection {}{1.2.2}{Dyck paths}}{9}{subsection.1.2.2}
+\contentsline {subsection}{\tocsubsection {}{1.2.3}{Abacus diagrams}}{10}{subsection.1.2.3}
+\contentsline {subsection}{\tocsubsection {}{1.2.4}{Our contributions}}{12}{subsection.1.2.4}
+\contentsline {section}{\tocsection {}{1.3}{Estimating graphlet statistics via Lifting}}{14}{section.1.3}
+\contentsline {subsection}{\tocsubsection {}{1.3.1}{Graphlets}}{15}{subsection.1.3.1}
+\contentsline {subsection}{\tocsubsection {}{1.3.2}{Graphlet sampling}}{16}{subsection.1.3.2}
+\contentsline {subsection}{\tocsubsection {}{1.3.3}{Definitions and notation}}{16}{subsection.1.3.3}
+\contentsline {subsection}{\tocsubsection {}{1.3.4}{Prior graphlet sampling methods}}{16}{subsection.1.3.4}
+\contentsline {subsection}{\tocsubsection {}{1.3.5}{Our contributions}}{17}{subsection.1.3.5}
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Crystal Analysis of type $C$ Stanley Symmetric Functions }}{19}{chapter.2}
+\contentsline {section}{\tocsection {}{2.1}{Crystal isomorphism}}{19}{section.2.1}
+\contentsline {subsection}{\tocsubsection {}{2.1.1}{Kra\'skiewicz insertion}}{19}{subsection.2.1.1}
+\contentsline {subsection}{\tocsubsection {}{2.1.2}{Mixed insertion}}{24}{subsection.2.1.2}
+\contentsline {section}{\tocsection {}{2.2}{Explicit crystal operators on shifted primed tableaux}}{28}{section.2.2}
+\contentsline {section}{\tocsection {}{2.3}{Implementation in Sage}}{34}{section.2.3}
+\contentsline {section}{\tocsection {}{2.4}{Proof of Theorem 2.19}}{37}{section.2.4}
+\contentsline {subsection}{\tocsubsection {}{2.4.1}{Preliminaries}}{37}{subsection.2.4.1}
+\contentsline {subsection}{\tocsubsection {}{2.4.2}{Proof of Theorem\nobreakspace \ref {theorem.main2}}}{42}{subsection.2.4.2}
+\contentsline {section}{\tocsection {}{2.5}{Proof of Theorem 2.21}}{47}{section.2.5}
+\contentsline {subsection}{\tocsubsection {}{2.5.1}{Preliminaries}}{47}{subsection.2.5.1}
+\contentsline {subsection}{\tocsubsection {}{2.5.2}{Proof of Theorem\nobreakspace \ref {theorem.main3}}}{51}{subsection.2.5.2}
+\contentsline {section}{\tocsection {}{2.6}{Outlook}}{51}{section.2.6}
+\contentsline {chapter}{\tocchapter {Chapter}{3}{Cores with distinct parts and bigraded Fibonacci numbers }}{52}{chapter.3}
+\contentsline {section}{\tocsection {}{3.1}{Simultaneous cores with distinct parts.}}{52}{section.3.1}
+\contentsline {section}{\tocsection {}{3.2}{Maximum size of $(a,a+1)$-cores with distinct parts.}}{54}{section.3.2}
+\contentsline {section}{\tocsection {}{3.3}{Number of $(2k-1,2k+1)$-cores with distinct parts.}}{56}{section.3.3}
+\contentsline {section}{\tocsection {}{3.4}{Graded Fibonacci numbers and $(a,as+1)$-cores with distinct parts.}}{58}{section.3.4}
+\contentsline {section}{\tocsection {}{3.5}{Bounce statistic and bigraded Fibonacci numbers.}}{65}{section.3.5}
+\contentsline {chapter}{\tocchapter {Chapter}{4}{Estimating Graphlet Statistics via Lifting }}{70}{chapter.4}
+\contentsline {section}{\tocsection {}{4.1}{Prior sampling schemes}}{70}{section.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.1.1}{Subgraph Random Walk}}{70}{subsection.4.1.1}
+\contentsline {subsection}{\tocsubsection {}{4.1.2}{Waddling Random Walk}}{71}{subsection.4.1.2}
+\contentsline {section}{\tocsection {}{4.2}{Subgraph lifting}}{71}{section.4.2}
+\contentsline {subsection}{\tocsubsection {}{4.2.1}{Notation}}{71}{subsection.4.2.1}
+\contentsline {subsection}{\tocsubsection {}{4.2.2}{Algorithm description}}{72}{subsection.4.2.2}
+\contentsline {subsection}{\tocsubsection {}{4.2.3}{Ordered lift estimator}}{73}{subsection.4.2.3}
+\contentsline {subsection}{\tocsubsection {}{4.2.4}{Unordered lift estimator}}{74}{subsection.4.2.4}
+\contentsline {subsection}{\tocsubsection {}{4.2.5}{Sampling a starting vertex}}{77}{subsection.4.2.5}
+\contentsline {section}{\tocsection {}{4.3}{Theoretical Analysis of Lifting}}{78}{section.4.3}
+\contentsline {section}{\tocsection {}{4.4}{Experiments}}{81}{section.4.4}
+\contentsline {subsection}{\tocsubsection {}{4.4.1}{Relative Error given limited queries}}{82}{subsection.4.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.4.2}{Variation and correlation of samples}}{83}{subsection.4.4.2}
+\contentsline {section}{\tocsection {}{4.5}{Supplement to "Estimating Graphlets via Lifting"}}{85}{section.4.5}
+\contentsline {subsection}{\tocsubsection {}{4.5.1}{Proof of Prop. \ref {prop:unbiased}.}}{85}{subsection.4.5.1}
+\contentsline {subsection}{\tocsubsection {}{4.5.2}{Proof of Theorem \ref {thm:var_bd}.}}{85}{subsection.4.5.2}
+\contentsline {subsection}{\tocsubsection {}{4.5.3}{Proof of Theorem \ref {thm:cor_bd}}}{85}{subsection.4.5.3}
+\contentsline {section}{\tocsection {}{4.6}{Conclusion}}{86}{section.4.6}
+\contentsline {chapter}{\tocchapter {\chaptername }{}{Bibliography}}{88}{chapter*.15}

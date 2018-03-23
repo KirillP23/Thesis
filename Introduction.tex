@@ -1,16 +1,20 @@
 
 This thesis consists of three parts, each corresponding to a single research project.
 Although the connection between the projects is loose, each of them represents a different part of Combinatorics: Chapter~\ref{ch:crystals} for Algebraic Combinatorics, Chapter~\ref{ch:fibonacci} for Enumerative Combinatorics, and Chapter~\ref{ch:lift} for applications of Combinatorics in Data Mining algorithms.
-Therefore, the reader can follow the chapters in any order, depending on their academic interests.
 
-In this chapter we introduce the necessary background and describe the main results of each chapter to follow.
+Chapter~\ref{ch:crystals} is based on the paper ``Crystal analysis of type $C$ Stanley symmetric functions''~\cite{Crystals.2017}, written in collaboration with Graham Hawkes and Anne Schilling; Chapter~\ref{ch:fibonacci} is based on the paper ``Cores with distinct parts and bigraded Fibonacci numbers''~\cite{Fibonacci.2018}, the idea of the paper was suggested by Eugene Gorsky; and Chapter~\ref{ch:lift} is based on the paper ``Estimating graphlet statistics via Lifting''~\cite{Graphlets.2018}, written in collaboration with James Sharpnack.
+
+The reader can follow the chapters in any order, depending on their academic interests.
+
+In this introductory chapter we introduce the necessary background and describe the main results of each chapter to follow.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crystals and type $C$ Stanley Symmetric Functions.}
+\label{intro:crystals}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The goal of this project is to find a Schur decomposition of the type $C$ Stanley symmetric functions.
-We'll start with general theory of symmetric functions.
+Chapter~\ref{ch:crystals}, based on the paper ``Crystal analysis of type $C$ Stanley symmetric functions''~\cite{Crystals.2017}, has the goal of finding a Schur decomposition of type $C$ Stanley symmetric functions.
+We will start with general theory of symmetric functions.
 
 \subsection{Schur functions}
 
@@ -30,7 +34,8 @@ That is,
 where the sum is taken over all semistandard Young tableau of shape $\lambda$.
 Here $\mathbf{x} = (x_1, x_2, x_3, \ldots)$ and $\mathbf{x}^{\mathbf{v}} = x_1^{v_1} x_2^{v_2} x_3^{v_3} \cdots$.
 
-Schur functions play an important role in algebraic combinatorics and representation theory, since they represent characters of irreducible representations of the symmetric group, so they often serve as building blocks for characters of symmetric group representations.
+Schur functions turn out to be symmetric with respect to ${\bf x}$; moreover, they form a basis in the space of symmetric functions.
+Schur functions also play an important role in algebraic combinatorics and representation theory, since they represent characters of irreducible representations of the symmetric group, so they often serve as building blocks for characters of symmetric group representations.
 Therefore, decomposing a symmetric function $F$ into a linear combination of Schur functions is important for understanding representation corresponding to function $F$.
 
 The sum $F(\mathbf{x}) = \sum_\lambda K_\lambda s_\lambda(\mathbf{x})$ is called a \defn{Schur decomposition}.
@@ -185,26 +190,23 @@ This allows us to further decompose the characteristic function of $\mathcal{PT}
 According to Theorem~\ref{thm:crystal1}, in order to find coefficients of that decomposition, it is enough to count all highest weight elements of $\mathcal{PT} (\lambda)$.
 
 Finally, we combine all results to obtain the decomposition \ref{equation.FC}.
-
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Cores with distinct parts and bigraded Fibonacci numbers.}
+\label{intro:fibonacci}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \graphicspath{ {ch3_figures/} }
 
-For two coprime integers $a$ and $b$, the rational Catalan number $C_{a,b}$ and its bigraded generalization $C_{a,b}(q,t)$ have caught the attention of different researchers due to their connection to algebraic combinatorics and geometry \cite{AHJ.14, ALW.16, GM.16, GMV.16}. Catalan numbers can be analyzed from the perspective of different combinatorial objects: rational $(a,b)$-Dyck paths, simultaneous $(a,b)$-core partitions and abacus diagrams. 
+The rational Catalan number $C_{a,b}$ and its bigraded generalization $C_{a,b}(q,t)$ have caught the attention of different researchers due to their connection to algebraic combinatorics and geometry \cite{AHJ.14, ALW.16, GM.16, GMV.16}.
+Catalan numbers can be analyzed from the perspective of different combinatorial objects: rational $(a,b)$-Dyck paths, simultaneous $(a,b)$-core partitions and abacus diagrams. 
 
 In 2015, Amdeberhan~\cite{Amdeberhan.15} conjectured that the number of $(a,a+1)$-cores with distinct parts is equal to the Fibonacci number $F_{a+1}$, and also conjectured the formulas for the largest size and the average size of such partitions. 
 
-In Chaper~\ref{ch:fibonacci} we explore cores with distinct parts in connection with Dyck paths and abacus diagrams.
-That connection also allows us to introduce bigraded Fibonacci numbers as a certain summand of bigraded Catalan numbers.
+Chapter~\ref{ch:fibonacci} is based on the paper~\cite{Fibonacci.2018}, which explores cores with distinct parts in connection with Dyck paths and abacus diagrams.
+That connection leads to introduction of bigraded Fibonacci numbers as a certain summand of bigraded Catalan numbers.
 
-\begin{figure}[t]
-\includegraphics[scale=0.29]{anderson_bijection.png} \centering
-\caption{$(9,11)$-Dyck path $\pi$ and $(9,11)$-core $\kappa$ with $\mathbf{core}(\pi) = \kappa$.} \centering
-\label{figure.anderson}
-\end{figure}
 
 \subsection{Simultaneous core partitions}
 
@@ -234,6 +236,13 @@ For $(a,a+1)$-core partitions with distinct parts, we have
 $$\sum_{i+j+k=a+1} F_i F_j F_k \quad \text{and} \quad \sum_{i+j+k=a+1} \frac{F_i F_j F_k}{F_{a+1}}.$$
 \end{enumerate}
 \end{theorem} 
+
+\begin{figure}[t]
+\includegraphics[scale=0.29]{anderson_bijection.png} \centering
+\caption{$(9,11)$-Dyck path $\pi$ and $(9,11)$-core $\kappa$ with $\mathbf{core}(\pi) = \kappa$.} \centering
+\label{figure.anderson}
+\end{figure}
+
 
 Part (1) of the above theorem was independently proved by Straub~\cite{Straub.16}.
 
@@ -405,9 +414,10 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
 %The author would like to thank Evgeny Gorskiy, Anne Schilling and Tewodros Amdeberhan for suggesting the problem and providing helpful discussions and comments.
 %This research was partially supported by NSF grant DMS-1500050.
 
-
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Estimating graphlet statistics via Lifting}
+\label{intro:lift}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \graphicspath{ {ch4_figures/} }
@@ -415,6 +425,7 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
     %Broad intro
     In 1970, \cite{davis1970clustering} discovered that transitivity---the tendency of friends of friends to be friends themselves---is a prevalent feature in social networks.
     Since that early discovery, real-world networks have been observed to have many other common macroscopic features, and these discoveries have led to probabilistic models for networks that display these phenomena.
+    
     The observation that transitivity and other common subgraphs are prevalent in networks motivated the exponential random graph model (ERGM) \cite{frank1986markov}.
     \cite{barabasi1999emergence} demonstrated that many large networks display a scale-free power law degree distribution, and provided a model for constructing such graphs.
     Similarly, the small world phenomenon---that networks display surprisingly few degrees of separation---motivated the network model in \cite{watts1998collective}.
@@ -424,10 +435,12 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
     In \cite{wasserman1996logit}, a pseudolikelihood method was used with graphlet counts to fit an ERGM designed to display transitivity, and Monte Carlo Markov Chain (MCMC) methods were developed in \cite{snijders2002markov} for fitting general ERGMs.
 	Fitting such models from data can be cumbersome, and to do so implicitly assumes that the network follows such a model exactly.
 	Network statistics, such as the clustering coefficient, algebraic connectivity, and degree sequence, are more flexible tools.
+	
 	A good statistic can be used to fit and test models, for example, \cite{watts1998collective} used the local clustering coefficient, a measure of the number of triangles relative to wedges, to test if a network is a small-world graph.
 	The clustering coefficient is also used to understand social network graphs, \cite{chakrabarti2006graph}.
 	More generally, it was discovered that re-occurring subgraph patterns can be used to differentiate real-world networks, and that genetic networks, neural networks, and internet networks all presented different common interconnectivity patterns, \cite{milo2002network}.
-	In Chapter~\ref{ch:lift}, we will propose a new method for counting the occurrences of any subgraph pattern, otherwise known as {\em graphlets}---a term coined in \cite{prvzulj2004modeling}---or motifs.
+	
+	In Chapter~\ref{ch:lift}, based on our joint work with James Sharpnack~\cite{Graphlets.2018}, we will propose a new method for counting the occurrences of any subgraph pattern, otherwise known as {\em graphlets}---a term coined in \cite{prvzulj2004modeling}---or motifs.
 	
 \def\mygraphletwidth{0.08\textwidth}
 \def\mybiggraphletwidth{0.10\textwidth}
@@ -505,6 +518,7 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
 	
 	\subsection{Graphlets}
 	A graphlet is a small connected graph topology, such as a triangle, wedge, or $k$-clique, which we will use to describe the local behavior of a larger network (example graphlets of size 3, 4, and 5, can be seen in Figure \ref{fig:graphlets}).
+	
 	Let the graph in question be $G = (V,E)$ where $V$ is a set of vertices and $E$ is a set of unordered pairs of vertices ($G$ is assumed to be undirected and unweighted).
 	Imagine specifying a $k$-graphlet and testing for every induced subgraph of the graph (denoted $G|\{v_1,\ldots,v_k\}$ where $v_1,\ldots,v_k \in V$), if it is isomorphic to the subgraph (it has the same topology).
 	We would like to compute the number of Connected Induced Subgraphs of size $k$ (denoted by {\em $k$-CIS} throughout) for which this match holds.
@@ -528,10 +542,45 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
 	
 	Alternatives to random Monte Carlo schemes include the color coding scheme of \cite{Bressan2017colourcoding}, but it processes the whole graph, while the Monte Carlo schemes can traverse the network locally.
 	
-    In Chapter~\ref{ch:lift}, we propose a new Monte Carlo algorithm, called lifting, for estimating the graphlet counts within a large network.
-    The lifting step takes a smaller CIS of size $k-1$ and produces a subgraph of size $k$ by adding an adjacent vertex to it (according to a specific scheme).  
-    We consider procedures that start from vertices or edges and lift to sample CIS of size $k$.
-	Lifting is a simple, flexible procedure that can be easily distributed to accommodate massive network datasets.
+	\subsection{Definitions and notation}
+	
+	Throughout Chapter~\ref{ch:lifting} we will assume that our graph $G = (V,E)$ is simple, connected and undirected. 
+	For a subset $W \subseteq V$, a subgraph of $G$ induced by $W$, $G|W$ is a graph with vertices in $W$ and edges in $\binom{W}{2}\cap E$. 
+	We call a connected motif on $k$ vertices a $k$-graphlet.
+    Given a $k$-graphlet $H$, we'll be interested in the number of $k$-subgraphs of $G$ isomorphic to $H$.
+	The set of all connected induced $k$-subgraphs (or $k$-CISs) of $G$ is denoted by $\cV_k(G)$ (or simply $\cV_k$).
+	
+	An unordered set of vertices is denoted $\{v_1,\ldots,v_k\}$ while an ordered list is denoted $[v_1,\ldots,v_k]$.
+	Let $H_1, H_2, \ldots, H_l$ be all non-isomorphic
+	motifs for which we would like the graphlet counts. 
+	For $T\in \cV_k(G)$, we say that ``$T$ is subgraph of
+	 type $m$'' if $T$ is isomorphic to $H_m$, and denote this with $T \sim H_m$.
+	The number of $k$-subgraphs in $G$ of type $m$ is equal to 
+	$N_m (G) = \sum_{T \in \cV_k(G)} \ind(T \sim H_m)$, where $\ind(A)$ 
+	is the indicator function.
+	
+
+    \subsection{Prior graphlet sampling methods}
+	
+The ideal Monte Carlo procedure would sequentially sample CISs uniformly at random from the set $\cV_k(G)$, classify their type, and update the corresponding counts.  
+Unfortunately, uniformly sampling CISs is not a simple task because they are required to be connected---a random set of k vertices is unlikely to be connected.
+CIS sampling methods require Monte Carlo Markov Chains (MCMCs) for which one can calculate the stationary distribution, $\pi$, over the elements of $\cV_k$.
+First, let us consider how we update the graphlet counts, $N_m(G)$, given a sample of CISs, $T_1, T_2, \ldots, T_n$.
+
+The desire to sample subgraphs uniformly is natural, because the empirical counts will be unbiased estimates of their population quantities.
+Instead, suppose that our CIS sample, with $T_i \in \cV_k, i=1,\ldots,n$, is drawn with known sampling distribution $\pi$.
+Then we use Horvitz-Thompson inverse probability weighting to estimate the graphlet counts,
+\begin{equation}
+  \label{eq:moments}
+  \hat N_m(G) := \frac{1}{n} \sum_{i=1}^n \frac{\ind(T_i\sim H_m)}{\pi(T_i)}.  
+\end{equation}
+It is simple to see that this is an unbiased estimate of the graphlet counts as long as $\pi$ is supported over all elements of $\cV_k$.
+Alternative updating methods include rejection sampling, which can be combined with inverse probability weighting, but we will use \eqref{eq:moments} for ease of presentation.
+
+We find ourselves in a game, where we can choose any CIS Monte Carlo algorithm that induces a stationary distribution $\pi$, but we must be able to quickly and accurately compute $\pi$ in order to use \eqref{eq:moments}.
+In Chapter~\ref{ch:lifting}, we will analyze the theoretical implications of the sampling algorithm based on mixing times of the Markov chain and the variance of the graphlet count estimates.
+
+Before we describe the lifting procedure in Section~\ref{sec:liftin}, our main algorithmic contribution, we will discuss some existing MCMC CIS sampling methods in Section~\ref{sec:prior_algs}.
 	
 	\subsection{Our contributions}
 	
@@ -541,7 +590,10 @@ with initial conditions $\tilde F^{(s)}_0 (q,t) =\tilde F^{(s)}_1(q,t) = 1$.
     Because massive graphs are often stored in distributed databases, we would like the sampling scheme to require only neighborhood queries (requests to the database returns the neighbors of a node) and we will avoid storing or processing the full graph.
     Because communication is often the bottleneck in distributed computing, neighborhood queries are the basic unit for measuring computational time complexity.
     
-    After discussing the precise requirements for any CIS sampling procedure, we will introduce the lifting scheme for subgraphs.
+    In Chapter~\ref{ch:lift}, we propose a new Monte Carlo algorithm, called lifting, for estimating the graphlet counts within a large network.
+    The lifting step takes a smaller CIS of size $k-1$ and produces a subgraph of size $k$ by adding an adjacent vertex to it (according to a specific scheme).  
+    We consider procedures that start from vertices or edges and lift to sample CIS of size $k$.
+	Lifting is a simple, flexible procedure that can be easily distributed to accommodate massive network datasets.
     
     The key difficulty in any Monte Carlo method for graphlet counting is calculating the sampling distribution.
     We provide two methods, the ordered lift estimator and the unordered lift estimator, which differ in the way that subgraphs are represented and counted in the graphlet count.

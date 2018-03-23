@@ -1,242 +1,31 @@
 \graphicspath{ {ch4_figures/} }
 
-%	\section{Introduction}
-%	\label{sec:intro}
-%	
-%    %Broad intro
-%    In 1970, \cite{davis1970clustering} discovered that transitivity---the tendency of friends of friends to be friends themselves---is a prevalent feature in social networks.
-%    Since that early discovery, real-world networks have been observed to have many other common macroscopic features, and these discoveries have led to probabilistic models for networks that display these phenomena.
-%    The observation that transitivity and other common subgraphs are prevalent in networks motivated the exponential random graph model (ERGM) \cite{frank1986markov}.
-%    \cite{barabasi1999emergence} demonstrated that many large networks display a scale-free power law degree distribution, and provided a model for constructing such graphs.
-%    Similarly, the small world phenomenon---that networks display surprisingly few degrees of separation---motivated the network model in \cite{watts1998collective}.
-%    While network science is often driven by the observation and modelling of common properties in networks, it is incumbent on the practicing data scientist to explore network data using statistical methods. 
-%    
-%    One approach to understanding network data is to fit free parameters in these network models to the data through likelihood-based or Bayesian methods. 
-%    In \cite{wasserman1996logit}, a pseudolikelihood method was used with graphlet counts to fit an ERGM designed to display transitivity, and Monte Carlo Markov Chain (MCMC) methods were developed in \cite{snijders2002markov} for fitting general ERGMs.
-%	Fitting such models from data can be cumbersome, and to do so implicitly assumes that the network follows such a model exactly.
-%	Network statistics, such as the clustering coefficient, algebraic connectivity, and degree sequence, are more flexible tools.
-%	A good statistic can be used to fit and test models, for example, \cite{watts1998collective} used the local clustering coefficient, a measure of the number of triangles relative to wedges, to test if a network is a small-world graph.
-%	The clustering coefficient is also used to understand social network graphs, \cite{chakrabarti2006graph}.
-%	More generally, it was discovered that re-occurring subgraph patterns can be used to differentiate real-world networks, and that genetic networks, neural networks, and internet networks all presented different common interconnectivity patterns, \cite{milo2002network}.
-%	In this work, we will propose a new method for counting the occurrences of any subgraph pattern, otherwise known as {\em graphlets}---a term coined in \cite{prvzulj2004modeling}---or motifs.
-%	
-%\def\mygraphletwidth{0.08\textwidth}
-%\def\mybiggraphletwidth{0.10\textwidth}
-%
-%\begin{figure}[th]
-%\hspace*{\fill}
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_2-1.png}
-%  \caption*{$H_1^{(2)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_3-1.png}
-%  \caption*{$H_1^{(3)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_3-2.png}
-%  \caption*{$H_2^{(3)}$}
-%\end{subfigure}
-%\hspace*{\fill}
-%\vskip 5pt
-%\hspace*{\fill}
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-1.png}
-%  \caption*{$H_1^{(4)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-2.png}
-%  \caption*{$H_2^{(4)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-3.png}
-%  \caption*{$H_3^{(4)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-4.png}
-%  \caption*{$H_4^{(4)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-5.png}
-%  \caption*{$H_5^{(4)}$}
-%\end{subfigure}\hspace*{\fill}
-%\begin{subfigure}{\mygraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_4-6.png}
-%  \caption*{$H_6^{(4)}$}
-%\end{subfigure}
-%\hspace*{\fill}
-%\vskip 5pt
-%\hspace*{\fill}
-%\begin{subfigure}{\mybiggraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_5-1.png}
-%  \captionof*{figure}{$H_1^{(5)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mybiggraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_5-8.png}
-%  \caption*{$H_8^{(5)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mybiggraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_5-11.png}
-%  \caption*{$H_{11}^{(5)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mybiggraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_5-19.png}
-%  \caption*{$H_{19}^{(5)}$}
-%\end{subfigure}\hfill
-%\begin{subfigure}{\mybiggraphletwidth}
-%  \includegraphics[width=\linewidth]{graphlet_5-21.png}
-%  \caption*{$H_{21}^{(5)}$}
-%\end{subfigure}\hspace*{\fill}
-%\vspace{-.1cm}
-%\caption{Examples of graphlets}
-%\vspace{-.1cm}
-%\label{fig:graphlets}
-%\end{figure}
-%
-%	
-%	%Intro to graphlets
-%	A graphlet is a small connected graph topology, such as a triangle, wedge, or $k$-clique, which we will use to describe the local behavior of a larger network (example graphlets of size 3, 4, and 5, can be seen in Figure \ref{fig:graphlets}).
-%	Let the graph in question be $G = (V,E)$ where $V$ is a set of vertices and $E$ is a set of unordered pairs of vertices ($G$ is assumed to be undirected and unweighted).
-%	Imagine specifying a $k$-graphlet and testing for every induced subgraph of the graph (denoted $G|\{v_1,\ldots,v_k\}$ where $v_1,\ldots,v_k \in V$), if it is isomorphic to the subgraph (it has the same topology).
-%	We would like to compute the number of Connected Induced Subgraphs of size $k$ (denoted by {\em $k$-CIS} throughout) for which this match holds.
-%	We call this number the {\em graphlet counts} and the proportion of the number of such matches to the total number of $k$-CISs is called the {\em graphlet coefficient}.
-%	
-%    Graphlets are the graph analogue of wavelets (small oscillatory functions that are convolved with a signal to produce wavelet coefficients) because they are small topologies that are matched to induced subgraphs of the original graph to produce the graphlet coefficients.
-%	Graphlet coefficients, also referred to as graph moments, are used in the method of moments to fit certain graph models by selecting parameters that match the empirical graph moments to their expectations \cite{bickel2011method}.
-%	Graphlet coefficients are used to understand biological networks, such as the protein-protein interaction network, and reoccuring patterns are thought to indicate evolutionary conserved modules \cite{prvzulj2006efficient}. 
-%	If the graphlet size, $k$, is small then testing for isomorphism, a problem called graph matching \cite{cordella2004sub}, is feasible, but testing every induced subgraph can require on the order of $n^k$ iterations in its most naive implementation.
-%	We propose a class of methods called lifting that allow us to quickly estimate graphlet coefficients.
-%
-%	%Graphlet sampling
-%	
-%	While there exist several algorithms that can estimate the proportion of triangles, wedges, and graphlets with four or five vertices (for example, \cite{Ahmed2017count, rahman2014graft}), there are few algorithms that can efficiently estimate the proportion of larger graphlets.
-%	Many methods that can handle arbitrary graphlets are Monte Carlo sampling procedures that traverse through the space of all graphlets of a certain size within the large network.
-%	Two such methods are GUISE algorithm of \cite{bhuiyan2012guise} and the pairwise subgraph random walk of \cite{Wang2014psrw}, which differ in the way that they perform a random walk between the CIS samples.
-%	Another option is to generate a sequence of vertices that induces a CIS sample, which has been done in \cite{Han2016waddling} using an algorithm called Waddling random walk.
-%	Alternatives to random Monte Carlo schemes include the color coding scheme of \cite{Bressan2017colourcoding}, but it processes the whole graph, while the Monte Carlo schemes can traverse the network locally.
-%    In this work, we propose a new Monte Carlo algorithm, called lifting, for estimating the graphlet counts within a large network.
-%    The lifting step takes a smaller CIS of size $k-1$ and produces a subgraph of size $k$ by adding an adjacent vertex to it (according to a specific scheme).  
-%    In this paper we consider procedures that start from vertices or edges and lift to sample CIS of size $k$.
-%	Lifting is a simple, flexible procedure that can be easily distributed to accommodate massive network datasets.
-%	
-%	\subsection{Our contributions}
-%	
-%	Graphlet coefficients are multipurpose statistical tools that can be used for model fitting and testing, network regression, and exploratory analysis for network data.
-%    Any CIS Monte Carlo sampling scheme has three goals: that it provides unbiased estimates of the graphlet coefficients, that the variance of the estimated coefficients is small, and that it does so in as few iterations as possible.
-%    Because massive graphs are often stored in distributed databases, we would like the sampling scheme to require only neighborhood queries (requests to the database returns the neighbors of a node) and we will avoid storing or processing the full graph.
-%    Because communication is often the bottleneck in distributed computing, neighborhood queries are the basic unit for measuring computational time complexity.
-%    
-%    After discussing the precise requirements for any CIS sampling procedure, we will introduce the lifting scheme for subgraphs.
-%    The key difficulty in any Monte Carlo method for graphlet counting is calculating the sampling distribution.
-%    We provide two methods, the ordered lift estimator and the unordered lift estimator, which differ in the way that subgraphs are represented and counted in the graphlet count.
-%    The ordered estimator allows for a modification, called {\em shotgun sampling} that samples multiple subgraphs in one shot. 
-%    For our theoretical component, we prove that the estimated graphlet coefficients are unbiased when the underlying MCMC has reached the stationary distribution (called perfect mixing).
-%    We also prove that under perfect mixing, the variance of the estimator scales like $\Delta^{k-2}$ where $\Delta$ is the maximum degree, and show that the lifting scheme can have significantly lower sample correlations than the subgraph random walk.
-%    All proofs can be found in the supplement.
-%    We conclude with real-world network experiments that reinforce the contention that subgraph lifting has a lower variance than Waddling and lower sample correlation than subgraph random walks.
+We continue from the Section~\ref{intro:lift}, where we introduced the notion of graphlets and the problem statement of estimating graphlet counts using efficient Monte Carlo sampling scheme.
 
-	\section{Sampling graphlets}
+This Chapter is joint work with James Sharpnack, all results can be found on arXiv~\cite{Graphlets.2018}.
 
-	\subsection{Definitions and notation}
-	
-%	Consider a graph $G=(V,E)$ with set of vertices $V$ and set of edges $E \subseteq \binom{V}{2}$. 
-	Throughout we will assume that our graph $G = (V,E)$ is simple, connected and undirected. 
-	%(It's easy to translate our results to the case of directed graphs, since we will mostly be focusing on the sampling procedure.) 
-	For a subset $W \subseteq V$, a subgraph of $G$ induced by $W$, $G|W$ is a graph with vertices in $W$ and edges in $\binom{W}{2}\cap E$. 
-	We call a connected motif on $k$ vertices a $k$-graphlet.
-    Given a $k$-graphlet $H$, we'll be interested in the number of $k$-subgraphs of $G$ isomorphic to $H$.
-    %In order to distinguish between the abstract graph topology $H$ and the graphlets found in the graph $G$, we will call $H$ a motif, and if the graphlet $T := G|W \sim H$ then it is said to have motif $H$.
-	%The distinction between a graphlet and a subgraph is the fact that the subgraph retains the vertex labels, $W$, and the graphlet is only the topology of $G|W$.
-	The set of all connected induced $k$-subgraphs (or $k$-CISs) of $G$ is denoted by $\cV_k(G)$ (or simply $\cV_k$).
-	
-	An unordered set of vertices is denoted $\{v_1,\ldots,v_k\}$ while an ordered list is denoted $[v_1,\ldots,v_k]$.
-	Let $H_1, H_2, \ldots, H_l$ be all non-isomorphic
-	motifs for which we would like the graphlet counts. 
-	For $T\in \cV_k(G)$, we say that ``$T$ is subgraph of
-	 type $m$'' if $T$ is isomorphic to $H_m$, and denote this with $T \sim H_m$.
-	The number of $k$-subgraphs in $G$ of type $m$ is equal to 
-	$N_m (G) = \sum_{T \in \cV_k(G)} \ind(T \sim H_m)$, where $\ind(A)$ 
-	is the indicator function.
-    For a subgraph $S \subseteq G$, denote $V_S$ to be the set of its vertices, $E_S$ to be the set of its edges.
-	Denote $\cN_v(S)$ (vertex neighborhood of $S$) to be the set of all vertices adjacent to some vertex in $S$ not including $S$ itself. 
-	Denote $\cN_e(S)$ (edge neighborhood of $S$) to be the set of all edges that connect a vertex from $S$ and a vertex outside of $S$.
-% 	Formally,
-% 	\begin{equation*}
-% 		\cN_v(S) = \{u\in V_G\setminus V_S \mid \exists s\in V_S : (s,u)\in E_G\},
-% 	\end{equation*}
-% 	\begin{equation*}
-% 		\cN_e(S) = \{(s,u)\in E_G \mid s\in V_S, u\notin V_S\}.
-% 	\end{equation*}	
-	Also, denote $\deg(S)$ (degree of $S$) to be the number of edges in $\cN_e(S)$, and denote $\deg_S(u)$ ($S$-degree of $u$) to be the number of vertices from $S$ that are connected to $u$.
-% 	Formally,
-% 	\begin{equation*}
-% 		\deg(S) = |\{(s,u)\in E_G \mid s\in V_S, u\notin V_S\}|,
-% 	\end{equation*}
-% 	\begin{equation*}
-% 		\deg_S(u) = |\{s\in V_S\mid (u,s)\in E_G\}|.
-% 	\end{equation*}
-	Note that $\deg(S) + 2|E_S| = \sum_{v\in V_S} \deg(v)$.
+	\section{Prior sampling schemes}
+	\label{sec:prior_algs}
 
-
-    \subsection{Prior graphlet sampling methods}
-	
-The ideal Monte Carlo procedure would sequentially sample CISs uniformly at random from the set $\cV_k(G)$, classify their type, and update the corresponding counts.  
-Unfortunately, uniformly sampling CISs is not a simple task because they are required to be connected---a random set of k vertices is unlikely to be connected.
-CIS sampling methods require Monte Carlo Markov Chains (MCMCs) for which one can calculate the stationary distribution, $\pi$, over the elements of $\cV_k$.
-First, let us consider how we update the graphlet counts, $N_m(G)$, given a sample of CISs, $T_1, T_2, \ldots, T_n$.
-
-The desire to sample subgraphs uniformly is natural, because the empirical counts will be unbiased estimates of their population quantities.
-Instead, suppose that our CIS sample, with $T_i \in \cV_k, i=1,\ldots,n$, is drawn with known sampling distribution $\pi$.
-Then we use Horvitz-Thompson inverse probability weighting to estimate the graphlet counts,
-\begin{equation}
-  \label{eq:moments}
-  \hat N_m(G) := \frac{1}{n} \sum_{i=1}^n \frac{\ind(T_i\sim H_m)}{\pi(T_i)}.  
-\end{equation}
-It is simple to see that this is an unbiased estimate of the graphlet counts as long as $\pi$ is supported over all elements of $\cV_k$.
-Alternative updating methods include rejection sampling, which can be combined with inverse probability weighting, but we will use \eqref{eq:moments} for ease of presentation.
-
-We find ourselves in a game, where we can choose any CIS Monte Carlo algorithm that induces a stationary distribution $\pi$, but we must be able to quickly and accurately compute $\pi$ in order to use \eqref{eq:moments}.
-We will analyze the theoretical implications of the sampling algorithm based on mixing times of the Markov chain and the variance of the graphlet count estimates.
-Before we explore the lifting procedure, this paper's algorithmic contribution, we would like to discuss some existing MCMC CIS sampling methods.
-
-%\subsection{Subgraph random walks}
-
-%Any admissible graphlet Markov chain transitions between k-graphlets of $G$ and the transition probabilities have a calculable stationary distribution $\pi$.
-% The basic algorithm is listed in \ref{alg:SRW}, and some elements are left purposefully vague to maintain generality.
-% Many of the proposed graphlet sampling algorithms can be encompassed by this master algorithm, and we will highlight the two most prominent examples: Subgraph random walk and waddling random walk.
-
-% \begin{algorithm}
-% \label{alg:SMC}
-% \caption{Subgraph Markov chain}
-% \begin{algorithmic}
-%   \STATE Initialize $T$ at an arbitrary k-graphlet, $n \gets 1$, $\hat N_m(G) \gets 0$
-%   \WHILE{stopping criteria is not met}
-%   \STATE Query the neighbors of each vertex in $T$, $\{\mathcal N (v): v \in T\}$
-%   \STATE Add a vertex according to an {\em add rule}
-%   \STATE Remove a vertex according to a {\em remove rule}
-%   \IF{{\em Markov chain is sufficiently mixed}}
-%   \STATE Determine the type $m$ of $T$, calculate $\pi(T)$
-%   \STATE Update $\hat N_m(G) \gets ((n -1) \hat N_m(G) + \pi^{-1}(T))/n$ and $n \gets n + 1$
-%   \ENDIF
-%   \ENDWHILE
-% \end{algorithmic}
-% \end{algorithm}
-
-
+\subsection{Subgraph Random Walk}
 The subgraph random walk is described in \cite{Wang2014psrw}, where they make a modification called the pairwise subgraph random walk (PSRW).
-%For this method, consider a set $\_k$ of all $k$-graphlets of $G$.
+Consider a set $\cV_k$ of all $k$-graphlets of $G$.
 In order to perform a random walk where the states are $\cV_k$, we form the CIS-relationship graph.
+
 Two $k$-CISs, $T,S \in \cV_k$ are connected with an edge if and only if vertex sets of $T$ and $S$ differ by one element, i.e. when $|V(T) \cap V(S)| = k-1$.
 Given the graph structure, we sample $k$-CISs by a random walk on the set $\cV_k$, which is called Subgraph Random Walk (SRW).
+
 Because the transition from state $S \in \cV_k$ is made uniformly at random to each adjacent CIS, then we know that the stationary distribution will sample each edge in the CIS-relationship graph with equal probability.
 This fact enables \cite{Wang2014psrw} to provide a local estimator of the stationary probability $\pi(S)$.
 PSRW is a modification of the SRW algorithm, where each transition is performed from $S$ to $T$ in $\cV_{k-1}$ and then the $k$-CIS $S \cup T$ is returned.
-	%This is the basic lift operation, and it was used in the PSRW algorithm, \cite{Wang2014psrw}, to generate $k$-graphlets from a subgraph random walk on $k-1$-subgraphs.
+The graphlet count estimator is then calculated using Horovitz-Thompson inverse probability weighting~\ref{eq:moments}.
 
 The mixing time is a critical issue for any MCMC, and subgraph sampling is no exception.
 Dependence between consecutive samples results in a higher variability of $\hat N_m(G)$, and sufficient mixing is required for the stationary distribution to approximate the sampling distribution.
-It was pointed out in \cite{Bressan2017colourcoding} that the mixing time of the SRW can be of order $O(n^{k-2})$, even if the mixing time of the random walk on the original graph $G$ is of constant order $O(1)$.
+It was pointed out in~\cite{Bressan2017colourcoding} that the mixing time of the SRW can be of order $O(n^{k-2})$, even if the mixing time of the random walk on the original graph $G$ is of constant order $O(1)$.
 PSRW also requires global constants based on the CIS-graph, which can be computationally intractable (super-linear time).
+
+\subsection{Waddling Random Walk}
 
 Another approach is to sample on ordered sequences of vertices $[v_1, \ldots, v_k]$, denoted by $A$, which would induce a $k$-CIS, $T = G|A$.
 Given a sampling scheme of such sequences with probability $\tilde\pi(A)$, the estimator for graphlet counts is given by
@@ -258,73 +47,22 @@ The downside to this method is that the precise Waddling protocol used should de
 In contrast, the lifting scheme has the advantage of inheriting the mixing time of the random walk on $G$, and it can simultaneously sample many CISs of differing sizes without any rejections.
 
 
-% \subsection{Lifting procedures}
-
-%     This approach gives an unbiased estimator assuming $\pi_k(T) >0$ for any $T\in \cV_k$.
-%     The biggest issue of this method is the variance of $\hat N_m(G)$. We rewrite the variance as a sum of two terms:
-% 	\begin{multline}
-% 	\label{eq:variation}
-% 		\Var(\hat N_m(G)) = \frac{1}{n}\left( \E_{\pi_k} \frac{\ind(T\sim H_m)}{\pi_k(T)^2} - N_m^2(G)\right) +\\
-% 		\frac{2}{n^2} \sum_{i < j} \Cov_{\pi_k}\left( \frac{\ind(T_i\sim H_m)}{\pi_k(T_i)}, \frac{\ind(T_j\sim H_m)}{\pi_k(T_j)}\right).
-% 	\end{multline}
-	
-% 	The first term will be referred to as variation under independence term, and can dominate the sum if $\pi_k(T)$ greatly deviates from the uniform probability $\rho(T) = \frac{\ind(T\sim H_m)}{N_m(G)}$.
-% 	The second term will be referred to as a covariance term and can dominate the sum when graphlets $T_i$ and $T_{i+1}$ have high correlation, which is the case for Subgraph Random Walk methods discussed below.
-	
-% 	The previous papers on that topic focused on efficient method of sampling a sequence of $k$-graphlets, depending on a framework.
-% 	We'll try to summarize the frameworks and corresponding methods here.
-	
-% 	There are two different frameworks, each with its own problem statement.
-% 	\begin{itemize}
-% 		\item \textbf{Framework 1.} We have access to the whole graph structure, for example, in the form of adjacency matrix. 
-% 		We can sample the nodes of the graph cheaply, independently and according to an arbitrary probability distribution.
-% 		The goal is to sample graphlets quickly, uniformly and independently.
-% 		In particular, the covariance term would be irrelevant in this framework.
-% 		The state-of-art method for this framework is Color Coding \cite{Bressan2017colourcoding}.
-
-% 		\item \textbf{Framework 2.} We start with an access to a single node $v_0$ and its 
-% 		neighborhood. As a query, we can transition to a neighboring node $v_1$ and get access to the neighborhood of $v_1$.
-% 		Each moment of time we can only get access to the neighbors of previously visited nodes. 
-% 		This framework is applied when queries are either expensive or limited and traversing the whole graph is time-prohibitive at best and not feasible at worst. 
-% 		The goal here is to achieve best accuracy with either limited number of queries ($10^3-10^4$ queries for graphs with $10^5-10^6$ nodes) or limited time, or something in between (costly queries).
-% 		Recent methods include Subgraph Random Walk(SRW) and Pairwise Random Walk \cite{Wang2014psrw} and Waddling Random Walk (WRW) \cite{Han2016waddling}.
-% 	\end{itemize}
-	
-% 	For each of the two frameworks above we'll present a modification of the base algorithm
-% 	to suit corresponding goals.
-	
-% 	\subsection{Subgraph Random Walk (SRW)}
-	
-
-% 	For a subgraph $S \subseteq G$, denote $V_S$ to be the set of its vertices, $E_S$ to be the set of its edges.
-% 	Denote $\cN_v(S)$ (vertex neighborhood of $S$) to be the set of all vertices adjacent to some vertex in $S$ not including $S$ itself. 
-% 	Denote $\cN_e(S)$ (edge neighborhood of $S$) to be the set of all edges that connect a vertex from $S$ and a vertex outside of $S$.
-% 	Formally,
-% 	\begin{equation*}
-% 		\cN_v(S) = \{u\in V_G\setminus V_S \mid \exists s\in V_S : (s,u)\in E_G\},
-% 	\end{equation*}
-% 	\begin{equation*}
-% 		\cN_e(S) = \{(s,u)\in E_G \mid s\in V_S, u\notin V_S\}.
-% 	\end{equation*}	
-	
-% 	Denote $\deg(S)$ (degree of $S$) to be the number of edges in $\cN_e(S)$, and denote $\deg_S(u)$ ($S$-degree of $u$) to be the number of vertices from $S$ that are connected to $u$.
-% 	Formally,
-% 	\begin{equation*}
-% 		\deg(S) = |\{(s,u)\in E_G \mid s\in V_S, u\notin V_S\}|,
-% 	\end{equation*}
-% 	\begin{equation*}
-% 		\deg_S(u) = |\{s\in V_S\mid (u,s)\in E_G\}|.
-% 	\end{equation*}
-% 	Note that $\deg(S) + 2|E_S| = \sum_{v\in V_S} \deg(v)$.
-
 \section{Subgraph lifting}
+\label{sec:lifting}
+
+	\subsection{Notation}
+	For a subgraph $S \subseteq G$, denote $V_S$ to be the set of its vertices, $E_S$ to be the set of its edges.
+	Denote $\cN_v(S)$ (vertex neighborhood of $S$) to be the set of all vertices adjacent to some vertex in $S$ not including $S$ itself. 
+	Denote $\cN_e(S)$ (edge neighborhood of $S$) to be the set of all edges that connect a vertex from $S$ and a vertex outside of $S$.
+	Also, denote $\deg(S)$ (degree of $S$) to be the number of edges in $\cN_e(S)$, and denote $\deg_S(u)$ ($S$-degree of $u$) to be the number of vertices from $S$ that are connected to $u$.
+	Note that $\deg(S) + 2|E_S| = \sum_{v\in V_S} \deg(v)$.
 	
+	\subsection{Algorithm description}
 	The lifting algorithm is based on a randomized protocol of attaching a vertex to a given CIS.
 	For any \smash{$(k-1)$}-CIS, $S$ we lift it to a $k$-subgraph by adding a vertex from its neighborhood, $\cN_v(S)$ at random according to some probability distribution.
 	Note that this basic lifting operation can explore any possible subgraph in $\cV_k$. 
-	%Another way to think about the lift operation is to perform a transition of the SRW, from $S$ to $T$ in $\cV_{k-1}$ and then returning $S \cup T$.
-	%This is the basic lift operation, and it was used in the PSRW algorithm, \cite{Wang2014psrw}, to generate $k$-graphlets from a subgraph random walk on $k-1$-subgraphs.
-	In this work, we show that one can lift from a random walk on the vertices, or another vertex or edge sampling distribution, and achieve favorable properties.
+
+	In this Chapter, we show that one can lift from a random walk on the vertices, or another vertex or edge sampling distribution, and achieve favorable properties.
 	
 \def\myliftgraphletwidth{0.10\textwidth}
 

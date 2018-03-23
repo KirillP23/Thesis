@@ -1,17 +1,42 @@
 {\singlespacing
    \begin{flushright}
-      Tyrrell B. McAllister \\
-      June 2006 \\
-      Meteorology \\
+      Kirill Paramonov \\
+      June 2018 \\
+      Mathematics \\
    \end{flushright}
 }
 
 \bigskip
 
 \begin{center}
-   Rain is Wet \\
+   Essays in Combinatorics: Crystal on Shifted Primed Tableaux, bigraded Fibonacci Numbers and Data Mining on Social Graphs \\
 \end{center}
 
 \section*{Abstract}
 
-This dissertation is \ldots like \ldots \emph{abstract}.
+This dissertation consists of three research projects in combinatorics, which come from three distinct branches: algebraic combinatorics, enumerative combinatorics and application of combinatorics to graph data mining.
+
+The first project explores the Schur decomposition of type $C$ Stanley symmetric functions via crystal structure on shifted primed tableaux.
+We present a connection between unimodal factorizations that form type $C$ Stanley symmetric functions, and shifted primed tableaux using Kra\'skiewicz insertion.
+Then we present crystal operators on the set of shifted primed tableaux, which in turn allows us to find the Schur decomposition of its characteristic function (also known as $P$-Schur function).
+The class of shifted primed tableaux together with its crystal structure has been implemented in Sage.
+
+In the second project we explore combinatorial properties of simultaneous $(a,b)$-cores with distinct parts.
+We use the bijections between $(a,b)$-cores and abacus diagrams to give another proof that the number of $(a,a+1)$-cores with distinct parts is the Fibonacci number $F_{a+1}$.
+We also provide a proof for the number of maximal-sized $(a,a+1)$-cores with distinct parts, and for the average size of such cores.
+Using bijection between cores and Dyck paths, we show that the number of $(2k-1, 2k+1)$-cores with distinct parts is equal to $2^{2k-2}$.
+We then further generalize our ideas to $(a,as+1)$-cores with distinct parts and introduce the $q,t$-Fibonacci numbers $F_a^{(s)}(q,t)$, motivated by $area$ and $bounce$ statistics of Dyck paths that generate $q,t$-Catalan numbers.
+Bigraded Fibonacci numbers have nice recursive relations that turn out to be equivalent to Andrews $q$-equations related to Rogers-Ramanujan identities.
+
+In the third project, we develop new method of estimating the number of appearances of a specific motif (like wedge or triangle) in a graph.
+The method uses Horowitz-Thompson inverse probability weighting for the subgraphs sampled in a procedure called lifting.
+We introduce three modifications of the lifting estimator: ordered, unordered and shotgun estimators.
+Our method is universal and has better mixing time and variance compared to other methods, which has been demonstrated both theoretically and experimentally.
+The method serves as a starting point of further development of machine learning algorithms on graphs.
+
+
+
+
+
+
+

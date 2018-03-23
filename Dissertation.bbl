@@ -132,6 +132,11 @@ E.~Gorsky, M.~Mazin, and M.~Vazirani, \emph{Rational dyck paths in the non
 M.~Haiman, \emph{On mixed insertion, symmetry, and shifted {Y}oung tableaux},
   J. Combin. Theory Ser. A \textbf{50} (1989), no.~2, 196--225.
 
+\bibitem[HPS17]{Crystals.2017}
+G.~Hawkes, K.~Paramonov, and A.~Schilling, \emph{Crystal analysis of type {$C$}
+  {S}tanley symmetric functions}, Electron. J. Combin. \textbf{24} (2017),
+  no.~3, Paper 3.51, 32.
+
 \bibitem[HS16]{Han2016waddling}
 G.~Han and H.~Sethu, \emph{Waddling random walk: Fast and accurate mining of
   motif statistics in large graphs}, 2016 IEEE 16th International Conference on
@@ -180,6 +185,10 @@ R.~Milo, S.~Shen-Orr, S.~Itzkovitz, N.~Kashtan, D.~Chklovskii, and U.~Alon,
 R.~Nath and J.~A. Sellers, \emph{Abaci structures of {$(s, ms\pm 1)$}-core
   partitions}, Electr. J. Comb. \textbf{24} (2017), no.~1, P1.5.
 
+\bibitem[Par18]{Fibonacci.2018}
+K.~Paramonov, \emph{Cores with distinct parts and bigraded {F}ibonacci
+  numbers}, Discrete Math. \textbf{341} (2018), no.~4, 875--888.
+
 \bibitem[PCJ04]{prvzulj2004modeling}
 N.~Pr{\v{z}}ulj, D.~G. Corneil, and I.~Jurisica, \emph{Modeling interactome:
   scale-free or geometric?}, Bioinformatics \textbf{20} (2004), no.~18,
@@ -189,6 +198,10 @@ N.~Pr{\v{z}}ulj, D.~G. Corneil, and I.~Jurisica, \emph{Modeling interactome:
 N.~Pr{\v{z}}ulj, D.~G. Corneil, and I.~Jurisica, \emph{Efficient estimation of
   graphlet frequency distributions in protein--protein interaction networks},
   Bioinformatics \textbf{22} (2006), no.~8, 974--980.
+
+\bibitem[PS18]{Graphlets.2018}
+K.~Paramonov and J.~Sharpnack, \emph{Estimating graphlet stataistics via
+  {L}ifting},  (2018), arXiv:1802.08736 [stat.ME].
 
 \bibitem[RA15]{nr-aaai15}
 R.~A. Rossi and N.~K. Ahmed, \emph{The network data repository with interactive

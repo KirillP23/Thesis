@@ -1,5 +1,9 @@
 \graphicspath{ {ch2_figures/} }
 
+We continue from the Section~\ref{intro:crystals}, where we introduced type $C$ Stanley symmetric functions and crystals.
+Our goal from this point forward is to introduce a crystal structure on the set of signed unimodal factorizations, which has type $C$ Stanley symmetric functions as its character.
+This Chapter is joint work with Graham Hawkes and Anne Schilling and all the results were published in the Electronic Journal of Combinatorics~\cite{Crystals.2017}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Crystal isomorphism} 
 \label{section.isomorphism}
@@ -15,10 +19,10 @@ the mixed insertion is constant on connected components of $\mathcal{B}^h$.
 \subsection{Kra\'skiewicz insertion}
 \label{section.kraskiewicz}
 
-In this section, we describe Kra\'skiewicz insertion. To do so, we first need to define 
+In this section, we describe the Kra\'skiewicz insertion. To do so, we first need to define 
 the \defn{Edelman--Greene insertion}~\cite{Edelmann.Greene.1987}. It is defined for a word 
 $\mathbf{w} = w_1 \ldots w_\ell$ and a letter $k$ such that the concatenation $w_1 \ldots w_\ell k$ is an $A$-type 
-reduced word. The Edelman--Green insertion of a letter $k$ into an {\it increasing} word 
+reduced word. The Edelman--Greene insertion of a letter $k$ into an {\it increasing} word 
 $\mathbf{w} = w_1 \ldots w_\ell$, denoted by $\mathbf{w} \leftsquigarrow k$, is constructed as follows:
 \begin{enumerate}
 	\item If $w_\ell < k$, then $\mathbf{w} \leftsquigarrow k = \mathbf{w'},$ where 
@@ -139,7 +143,9 @@ a letter $k$ into tableau $\mathbf{P}$ (denoted again by $\mathbf{P} \leftsquiga
 \end{enumerate}
 
 \begin{example}
-$\young(43201,:212,::0) \leftsquigarrow 0 = \young(43210,:210,::01)$.
+$$\young(43201,:212,::0) \leftsquigarrow 0 = \young(43210,:210,::01),$$ 
+since the insertions row by row are given by $43201 \leftsquigarrow 0 =0 \leftsquigarrow 43210$,
+$212 \leftsquigarrow 0 =  1 \leftsquigarrow 210$, and $0 \leftsquigarrow 1 = 01$.
 \end{example}
 
 \begin{lemma} \cite{Kraskiewicz.1989}
@@ -294,6 +300,17 @@ it into the row below its original cell, and if the new $y$ is primed, column-in
 
 The insertion process terminates either by placing a letter at the end of a row, bumping no new element, or forming a 
 new row with the last bumped element.
+
+\begin{example}
+Under mixed insertion, 
+$$\young(22\threep3,:33) \leftarrow 1 = \young(1\twop\threep3,:2\threep,::3).$$
+Let us explain each step in detail. The letter $1$ is inserted into the first row bumping out the $2$ from the main diagonal, 
+making it a $2'$, which is then inserted into the second column. The letter $2'$ bumps out $2$, which we insert into the 
+second row. Then $3$ from the main diagonal is bumped from the second row, making it a $3'$, which is then inserted 
+into third column. The letter $3'$ bumps out the 3 on the second row, which is then inserted as the first element in the 
+third row.
+\end{example}
+
 The shapes of $\mathbf{T}_{s-1}$ and $\mathbf{T}_s$ differ by one box. Add that box to $\mathbf{Q}_{s-1}$ with a letter 
 $s$ in it, to obtain the standard shifted tableau $\mathbf{Q}_s$.
 
@@ -433,10 +450,10 @@ $(i+1)$ differ by a whole unit.
 
 Given an (unsigned) primed tableau $\mathbf{T}$, we construct the \defn{reading word}  $\mathrm{rw}(\mathbf{T})$ as follows:
 \begin{enumerate}
-\item List all primed letters in the tableau, column by column, in decreasing order within each column, moving from the 
+\item List all primed letters in the tableau, column by column, from top to bottom within each column, moving from the 
 rightmost column to the left, and with all the primes removed (i.e. all letters are increased by half a unit).
 (Call this part of the word the \defn{primed reading word}.)
-\item Then list all unprimed elements, row by row, in increasing order within each row, moving from the bottommost 
+\item Then list all unprimed elements, row by row, from left to right within each row, moving from the bottommost 
 row to the top. (Call this part of the word the \defn{unprimed reading word}.)
 \end{enumerate}
 
@@ -451,7 +468,7 @@ If the bold letter $i$ is unprimed, denote the cell it is located in as $x$.
 If the bold letter $i$ is primed, we \textit{conjugate} the tableau $\mathbf{T}$ first.
 
 The \defn{conjugate} of a primed tableau $\mathbf{T}$ is obtained by reflecting the tableau over the main diagonal, 
-changing all primed entries $k'$ to $k$ and changing all unprimed elements $k$ to $(k+1)'$ (i.e. increase the content of all 
+changing all primed entries $k'$ to $k$ and changing all unprimed elements $k$ to $(k+1)'$ (i.e. increase the entries of all 
 boxes by half a unit). The main diagonal is now the North-East boundary of the tableau. Denote the resulting tableau as 
 $\mathbf{T}^*$.
 
@@ -459,7 +476,7 @@ Under the transformation $\mathbf{T} \to \mathbf{T}^*$, the bold primed $i$ is t
 Denote the cell it is located in as $x$.
 
 Given any cell $z$ in a shifted primed tableau $\mathbf{T}$ (or conjugated tableau $\mathbf{T}^*$), denote by 
-$c(z)$ the content of $z$.
+$c(z)$ the entry contained in cell $z$.
 Denote by $z_E$ the cell to the right of $z$, $z_W$ the cell to its left, $z_S$ the cell below, and $z_N$ the cell above.
 Denote by $z^*$ the corresponding conjugated cell in $\mathbf{T}^*$ (or in $\mathbf{T}$).
 Now, consider the box $x_E$ (in $\mathbf{T}$ or in $\mathbf{T}^*$) and notice that $c(x_E) \geqslant (i+1)'$.\\
@@ -468,24 +485,23 @@ Now, consider the box $x_E$ (in $\mathbf{T}$ or in $\mathbf{T}^*$) and notice th
 \textbf{Crystal operator $f_i$ on primed tableaux:}
 
 \begin{enumerate}
-	\item If $c(x_E) =  (i+1)'$, the box $x$ must lie outside of the main diagonal and the box right below $x_E$ cannot
-	have content equal to $(i+1)'$. Change $c(x)$ to $(i+1)'$ and
-	change $c(x_E)$ to $(i+1)$ (i.e. increase the content of $x$ and $x_E$ by half a unit). 
+	\item If $c(x_E) =  (i+1)'$, the box $x$ must lie outside of the main diagonal and the box immediately below $x_E$ cannot
+	contain $(i+1)'$. Change $c(x)$ to $(i+1)'$ and
+	change $c(x_E)$ to $(i+1)$ (i.e. increase the entry in cell $x$ and $x_E$ by half a unit). 
 	\item If $c(x_E) \neq (i+1)'$ or $x_E$ is empty, then there is a 
 	maximal connected ribbon (expanding in South and West directions) with the following properties:
 	\begin{enumerate}
 		\item The North-Eastern most box of the ribbon (the tail of the ribbon) is $x$.
-		\item The contents of all boxes within a ribbon besides the tail are either $(i+1)'$ or $(i+1)$.
+		\item The entries of all boxes within a ribbon besides the tail are either $(i+1)'$ or $(i+1)$.
 	\end{enumerate}
 	Denote the South-Western most box of the ribbon (the head) as $x_H$. 
 	\begin{enumerate}
 		\item If $x_H = x$, change $c(x)$ to $(i+1)$ (i.e. increase the 
-		content of $x$ by a whole unit).
+		entry in cell $x$ by a whole unit).
 		\item If $x_H \neq x$ and $x_H$ is on the main diagonal (in case of a tableau $\mathbf{T}$), change $c(x)$ 
-		to $(i+1)'$ (i.e. 
-		increase the content of $x$ by half a unit).
-		\item Otherwise, the content $c(x_H)$ must be $(i+1)'$ due to the bracketing rule. We change $c(x)$ to $(i+1)'$ 
-		and change $c(x_H)$ to $(i+1)$ (i.e. increase the content of $x$ and $x_H$ by half a unit).\\
+		to $(i+1)'$ (i.e. increase the entry in cell $x$ by half a unit).
+		\item Otherwise, $c(x_H)$ must be $(i+1)'$ due to the bracketing rule. We change $c(x)$ to $(i+1)'$ 
+		and change $c(x_H)$ to $(i+1)$ (i.e. increase the entry in cell $x$ and $x_H$ by half a unit).
 	\end{enumerate}
 \end{enumerate}
 
@@ -493,24 +509,28 @@ In the case when the bold $i$ in $\mathbf{T}$ is unprimed, we apply the above cr
 to find $f_i(\mathbf{T})$
 
 \begin{example}
-In the following examples, we mark the bold $i$ (if it exists):
-	\begin{equation*}
-		\ f_2 \Big(\ \young(1\twop2\threep,:2\threep3)\ \Big) =  \mathbf{0},
-		\quad 
-		\ f_2 \Big(\ \young(1\twop\boldtwo\threep,:2\threep4)\ \Big) = \ \young(1\twop\threep3,:2\threep4)\ ,
-		\quad
-		\ f_2 \Big(\ \young(112\boldtwo,:3\fourp4)\ \Big) = \ \young(1123,:3\fourp4)\ ,
-	\end{equation*}
-	\begin{equation*}
-		\ f_2 \Bigg(\ \young(11\twop\boldtwo3,:22\threep,::33)\ \Bigg) = \ \young(11\twop\threep3,:22\threep,::33)\ ,	
-		\quad
-		\ f_2 \Bigg(\ \young(111\boldtwo3,:22\threep,::3\fourp)\ \Bigg) = \ \young(111\threep3,:223,::3\fourp)\ .
-	\end{equation*}
+We apply operator $f_2$ on the following tableaux. The bold letter is marked if it exists:
+\begin{enumerate}
+\item $\mathbf{T} = \young(1\twop2\threep,:2\threep3)\ $, $\mathrm{rw}(\mathbf{T}) = 3322312$, thus 
+$f_2(\mathbf{T}) = \mathbf{0}$;\\ 
+
+\item $\mathbf{T} = \young(1\twop\boldtwo\threep,:2\threep4)\ $, $\mathrm{rw}(\mathbf{T}) = 3322412$, 
+thus $f_2(\mathbf{T}) = \young(1\twop\threep3,:2\threep4)$ by Case (1). \\
+
+\item $\mathbf{T} = \young(112\boldtwo,:3\fourp4)\ $, $\mathrm{rw}(\mathbf{T}) = 4341122$,
+thus $f_2(\mathbf{T}) = \young(1123,:3\fourp4)$ by Case (2a).\\
+
+\item $\mathbf{T} = \young(11\twop\boldtwo3,:22\threep,::33)$, $\mathrm{rw}(\mathbf{T}) = 3233221123$, 
+thus $f_2(\mathbf{T}) = \young(11\twop\threep3,:22\threep,::33)$ by Case~(2b).\\
+
+\item $\mathbf{T} = \young(111\boldtwo3,:22\threep,::3\fourp)$, $\mathrm{rw}(\mathbf{T}) = 3432211123$, 
+thus $f_2(\mathbf{T}) = \young(111\threep3,:223,::3\fourp)$ by Case~(2c).
+\end{enumerate}
 \end{example}
 
 In the case when the bold $i$ is primed in $\mathbf{T}$, we first conjugate $\mathbf{T}$ and then apply the above crystal 
 operator rules on $\mathbf{T}^*$, before reversing the conjugation. 
-Note that Case 2b is impossible for $\mathbf{T}^*$, since the main diagonal is now on the North-East.
+Note that Case~(2b) is impossible for $\mathbf{T}^*$, since the main diagonal is now on the North-East.
 
 \begin{example}
 	\begin{equation*}
@@ -535,7 +555,7 @@ Note that Case 2b is impossible for $\mathbf{T}^*$, since the main diagonal is n
 	Also, $f_i(\mathbf{b}) = \mathbf{0}$ if and only if $f_i(\mathbf{T})=\mathbf{0}$.
 \end{theorem}
 
-The proof of Theorem~\ref{theorem.main2} is quite technical and is relegated to Appendix~\ref{section.proof main2}.  
+The proof of Theorem~\ref{theorem.main2} is quite technical and is relegated to Section~\ref{section.proof main2}.  
 It implies that the explicit operators $f_i$ in this section are indeed equal to those defined in~\eqref{equation.ef}
 and that they are independent of the choice of $\mathbf{Q}_\lambda$. 
 We also immediately obtain:
@@ -568,22 +588,22 @@ If the bold $i+1$ is primed, conjugate $\mathbf{T}$ and denote the cell with the
 \textbf{Crystal operator $e_i$ on primed tableaux:}
 \begin{enumerate}
 	\item If $c(y_W) =  (i+1)'$, then change $c(y)$ to $(i+1)'$ and
-	change $c(y_W)$ to $i$ (i.e. decrease the content of $y$ and $y_W$ by half a unit). 
+	change $c(y_W)$ to $i$ (i.e. decrease the entry in cell $y$ and $y_W$ by half a unit). 
 	\item If $c(y_W) < (i+1)'$ or $y_W$ is empty, then there is a 
 	maximal connected ribbon (expanding in North and East directions) with the following properties:
 	\begin{enumerate}
 		\item The South-Western most box of the ribbon (the head of the ribbon) is $y$.
-		\item The content of all boxes within a ribbon besides the tail is either $i$ or $(i+1)'$.
+		\item The entry in all boxes within a ribbon besides the tail is either $i$ or $(i+1)'$.
 	\end{enumerate}
 	Denote the North-Eastern most box of the ribbon (the tail) as $y_T$. 
 	\begin{enumerate}
 		\item If $y_T = y$, change $c(y)$ to $i$ (i.e. decrease the 
-		content of $y$ by a whole unit).
+		entry in cell $y$ by a whole unit).
 		\item If $y_T \neq y$ and $y_T$ is on the main diagonal (in case of a conjugate tableau $\mathbf{T}^*$), 
 		then change $c(y)$ to 
-		$(i+1)'$ (i.e. decrease the content of $y$ by half a unit). 
-		\item If $y_T \neq y$ and $y_T$ is not on the diagonal, the content of $y_T$ must be $(i+1)'$ 
-		and we change $c(y)$ to $(i+1)'$ and change $c(y_T)$ to $i$ (i.e. decrease the content of $y$ 
+		$(i+1)'$ (i.e. decrease the entry in cell $y$ by half a unit). 
+		\item If $y_T \neq y$ and $y_T$ is not on the diagonal, the entry of cell $y_T$ must be $(i+1)'$ 
+		and we change $c(y)$ to $(i+1)'$ and change $c(y_T)$ to $i$ (i.e. decrease the entry of cell $y$ 
 		and $y_T$ by half a unit).
 	\end{enumerate}
 \end{enumerate}
@@ -614,7 +634,7 @@ Thus, there are no unbracketed letters $j$ in $\mathbf{b}$ if and only if there 
 	\end{equation*}
 \end{theorem}
 
-The proof of Theorem~\ref{theorem.main3} is relegated to Appendix~\ref{section.proof main3}.
+The proof of Theorem~\ref{theorem.main3} is relegated to Section~\ref{section.proof main3}.
 
 \begin{corollary}
 \label{theorem.main4}
@@ -632,6 +652,7 @@ Now, to determine the nonnegative integer coefficients $h_{\lambda\mu}$, it is e
 in $\mathcal{PT}(\lambda)$ of given weight $\mu$. 
 
 \begin{proposition}
+\label{proposition.highest}
 	A primed tableau $\mathbf{T} \in \mathcal{PT}(\lambda)$ is a highest weight element if and only if its reading word 	
 	$\mathrm{rw}(\mathbf{T})$ is a Yamanouchi word. That is, for any suffix of $\mathrm{rw}(\mathbf{T})$, its weight 
 	is a partition.
@@ -679,6 +700,23 @@ $h_{(3,1)\lambda} = 0$ for other weights $\lambda$. The expansion of $F^C_{0101}
 	F^C_{0101} = 4s_{(3,1)} + 4s_{(2,2)} + 4s_{(2,1,1)}.
 \end{equation*}
 \end{example}
+
+\begin{remark}
+\label{remark.doubling}
+In~\cite[Section 5]{Haiman.1989}, Haiman showed  that shifted mixed insertion can be understood in terms of 
+nonshifted mixed insertion operators that produce a symmetric tableau, which can subsequently be cut along the
+diagonal. More precisely, starting with a word $\mathbf{b}$, consider its doubling $\mathrm{double}(\mathbf{b})$ by 
+replacing each letter $\ell$ by $-\ell \;\ell$. By~\cite[Proposition 6.8]{Haiman.1989} the mixed insertion of 
+$\mathrm{double}(\mathbf{b})$ is the symmetrized version of $P_{\mathrm{HM}}(\mathbf{b})$. This symmetrized version 
+can also be obtained by first applying usual insertion to obtain $P(\mathrm{double}(\mathbf{b}))$ and then applying 
+conversion~\cite[Proposition 14]{SW.2001}. Since both doubling (where the operators are also replaced by their doubled 
+versions) and regular insertion commute with crystal operators, it follows that our crystal operators $f_i$ on primed tableaux
+can be described as follows:  To apply $f_i$ to $\mathbf{T}$, first form the symmetrization of $\mathbf{T}$ and then apply 
+inverse conversion (changing primed entries to negatives).  Next apply the doubled operator $f_if_{-i}$,  and then 
+convert ``forwards"  (negatives to primes).  This produces a symmetric tableau, which can then be cut along the diagonal 
+to obtain $f_i(\mathbf{T})$.
+\end{remark}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementation in Sage}
@@ -779,7 +817,7 @@ We use \lstinline{view} to construct a \LaTeX\ diagram of the crystal.
 \end{center}
 
 
-\section{Proof of Theorem~\ref{theorem.main2}}
+\section{Proof of Theorem 2.19}
 \label{section.proof main2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -791,7 +829,7 @@ In this section, we provide the proof of Theorem~\ref{theorem.main2}.
 We use the fact from \cite{Haiman.1989} that taking only elements smaller or equal to $i+1$ from the word $\mathbf{b}$ and 
 applying the mixed insertion corresponds to taking only the part of the tableau $\mathbf{T}$ with elements $\leqslant i+1$.
 Thus, it is enough to prove the theorem for a ``truncated'' word $\mathbf{b}$ without any letters greater than $i+1$.
-To shorten the notation, we set $j= i+1$ in this appendix. We sometimes also restrict to just the letters $i$ and $j$
+To shorten the notation, we set $j= i+1$ in this section. We sometimes also restrict to just the letters $i$ and $j$
 in a word $w$. We call this the \defn{$\{i,j\}$-subword} of $w$.
 
 First, in Lemma~\ref{lemma.main} we justify the notion of the reading word $\mathrm{rw}(\textbf{T})$ and provide the 
@@ -1373,7 +1411,7 @@ cannot be on the diagonal, and if $x_E$ is on diagonal, it must be empty.
 Following the proof of those cases, $f_i(\mathbf{T}^* \leftsquigarrow (b_h+1)') = \mathbf{T}'^* \leftsquigarrow (b_h+1)'$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Proof of Theorem~\ref{theorem.main3}}
+\section{Proof of Theorem 2.21}
 \label{section.proof main3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
